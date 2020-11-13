@@ -1,4 +1,4 @@
 package transports.managers;
 
-public class GoodsManagers {
+public class GoodsManager {
 }
