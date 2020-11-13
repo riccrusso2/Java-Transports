@@ -1,6 +1,4 @@
 # Java-Transports
 A little project created to manage a pack delivery firm
-last modifico
 
-
-
+Created by Russo Riccardo, Mecozzi Filippo
