@@ -58,9 +58,11 @@ public class Good {
         this.goodType = goodType;
     }
 
+
     public UnitMeasure getUnitMeasure() {
         return unitMeasure;
     }
+
 
     public void setUnitMeasure(UnitMeasure unitMeasure) {
         this.unitMeasure = unitMeasure;
@@ -72,14 +74,17 @@ public class Good {
         return contentName;
     }
 
+
     public void setContentName(String contentName) {
         this.contentName = contentName;
     }
 
 
+
     public GoodType getGoodType() {
         return goodType;
     }
+
 
     public void setGoodType(GoodType goodType) {
         this.goodType = goodType;
