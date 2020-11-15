@@ -19,17 +19,16 @@ public class Customer {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameSurnameFiscalcode(String name,String surname,String fiscalCode){
+        this.fiscalCode= fiscalCode;
+        this.surname= surname;
+        this.name= name;
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 
     public String getAddress() {
         return address;
@@ -43,9 +42,6 @@ public class Customer {
         return fiscalCode;
     }
 
-    public void setFiscalCode(String fiscalCode) {
-        this.fiscalCode = fiscalCode;
-    }
 
     public PaymentType getPaymentType() {
         return paymentType;
