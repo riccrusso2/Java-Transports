@@ -1,4 +1,6 @@
-package transports.domain_entities;
+package transports.enumerators;
+
+import transports.domain_entities.Good;
 
 /**this enumerator present the various unitMeasures of good
  * @see Good

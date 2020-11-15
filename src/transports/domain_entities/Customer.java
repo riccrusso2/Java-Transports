@@ -1,16 +1,18 @@
 package transports.domain_entities;
 
+import transports.enumerators.PaymentType;
+
 /**
 this class represents the customers who will make an order
  @see PaymentType
 
  */
 public class Customer {
-    String name;
-    String surname;
-    String address;
-    String fiscalCode;
-    PaymentType paymentType;
+    private String name;
+    private String surname;
+    private String address;
+    private String fiscalCode;
+    private PaymentType paymentType;
 
 
     public String getName() {

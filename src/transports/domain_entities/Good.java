@@ -1,7 +1,9 @@
 package transports.domain_entities;
 
 
-import transports.domain_entities.exceptions.InvalidMeasureException;
+import transports.enumerators.GoodType;
+import transports.enumerators.UnitMeasure;
+import transports.exceptions.InvalidMeasureException;
 
 /**
  * this class represent every good that is supported for  transports

@@ -1,4 +1,4 @@
-package transports.domain_entities;
+package transports.enumerators;
 
 public enum PaymentType {
     ELECTRONIC,CASH,
