@@ -1,6 +1,6 @@
-package transports.domain_entities.exceptions;
-import transports.domain_entities.GoodType;
-import transports.domain_entities.UnitMeasure;
+package transports.exceptions;
+import transports.enumerators.GoodType;
+import transports.enumerators.UnitMeasure;
 
 /*
 this exception represents an error of imcompatible unit measure and good type

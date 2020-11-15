@@ -4,9 +4,9 @@ package transports.domain_entities;
  * this class represents the cities that will form a route
  */
 public class City {
-    String name;
-    String province;
-    int cap;
+    private String name;
+    private String province;
+    private int cap;
 
 
     /**
