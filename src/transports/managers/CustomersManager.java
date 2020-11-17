@@ -3,88 +3,111 @@ import transports.domain_entities.Customer;
 import transports.enumerators.PaymentType;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
 
 /**
- * this  class contain all the customers avaiable and managed them
+ * This ADT is used to represent a manager for customers available
  * @see Customer
  */
 public class CustomersManager {
     private Collection<Customer> container;
 
+    /**
+     * @param customer The customer to search in this manager
+     * @return True if is in this manager, false otherwise
+     */
+    private boolean existsCustomer(Customer customer){
+        return false;
+    }
 
     /**
-     * @param customer the customer to search in cointainer
-     * @return True if  is in container,False otherwise
+     * Takes care of adding customer in the collection container
+     * @param customer Represents a customer object, already existing, to be added
+     *
      */
-    private boolean existCustomer(Customer customer){
+    /*
+        (EXCEPTIONAL CASES)
+            -Customer passed is null
+    */
+    public void insert(Customer customer){
 
     }
 
     /**
-     *  takes care of adding customer in the collection container
-     * @param customer is a customer object already existing
-     * @throws  NullPointerException when the customer passed is null
+     * Takes care of creating a new customer object and then add it in this manager
+     * @param name Represents the customer's name
+     * @param surname Represents the customer's surname
+     * @param address Represents the customer's address
+     * @param fiscalCode Represents the customer's fiscalCode
+     * @param paymentType Represents the type of payment a customer has
+     *
      */
-    public void insert(Customer customer) throws NullPointerException{
+    /*
+        (EXCEPTIONAL CASES)
+            -At least 1 param passed is null
+    */
+    public void insert(String name, String surname, String address, String fiscalCode, PaymentType paymentType){
 
     }
 
     /**
-     * takes care of crating a new object customer and then add it in the collection container
-     * @param name represent the customer's name
-     * @param surname represent the customer's surname
-     * @param address represent the customer's address
-     * @param fiscalCode  represent the customer's fiscalCode
-     * @param paymentType  represents the type of payment a customer has
-     * @throws NullPointerException when at least one of the parameters passed is null
-     */
-
-    public void insert(String name, String surname, String address, String fiscalCode, PaymentType paymentType)throws NullPointerException{
-
-    }
-
-    /**
-     * takes cares of modifying the name,surname and fiscalcode of the customer given
-     * @param customer customer object that will be modified
-     * @param newName the new name of the customer
-     * @param newSurname the new surname of the customer
-     * @param newFiscalcode the new fiscalcode of the customer
+     * Takes care of modifying the name, surname and fiscal code of the customer given
+     * @param customer Customer object that will be modified
+     * @param newName The new name of the customer
+     * @param newSurname The new surname of the customer
+     * @param newFiscalCode The new fiscal code of the customer
      * @throws  NullPointerException  when customer is null or one of the parameters is null
      */
-    public void modify(Customer customer,String newName,String newSurname,String newFiscalcode) throws  NullPointerException{
+    /*
+        (EXCEPTIONAL CASES)
+            -Customer is null or not in this manager
+            -At least 1 param passed is null (except of customer)
+    */
+    public void modify(Customer customer,String newName,String newSurname,String newFiscalCode){
 
 
     }
 
     /**
-     * takes cares of modifying the type of payment of the customer given
-     * @param customer customer object that will be modified
-     * @param paymentType the new type of payment of the customer
-     * @throws  NullPointerException  when customer is null or one of the parameters is null
+     * Takes care of modifying the type of payment of the customer given
+     * @param customer Customer object that will be modified
+     * @param paymentType The new type of payment of the customer
+     *
      */
-    public void modify(Customer customer,PaymentType paymentType) throws  NullPointerException{
-
+    /*
+        (EXCEPTIONAL CASES)
+            -Customer is null or not in this manager
+            -At least 1 param passed is null (except of customer)
+    */
+    public void modify(Customer customer,PaymentType paymentType){
 
     }
 
     /**
-     * takes cares of modifying the address of the customer given
+     * Takes care of modifying the address of the customer given
      * @param customer customer object that will be modified
      * @param newAddress the new address of the customer
-     * @throws  NullPointerException  when customer is null or one of the parameters is null
+     *
      */
-    public void modify(Customer customer,String newAddress)throws NullPointerException{
+    /*
+        (EXCEPTIONAL CASES)
+            -Customer is null or not in this manager
+            -At least 1 param passed is null (except of customer)
+    */
+    public void modify(Customer customer,String newAddress){
 
 
     }
+
     /**
-    * takes cares of removing the customer given
-    * @param customer customer object that will be removed
-     * @throws  NullPointerException  when customer is null,or customer doesn't exist in this manager
+     * Takes care of removing the customer given
+     * @param customer Customer object that will be removed
      */
-    public void remove(Customer customer)throws NullPointerException{
+    /*
+        (EXCEPTIONAL CASES)
+            -Customer is null
+            -Customer doesn't exist
+    */
+    public void remove(Customer customer){
 
     }
 
