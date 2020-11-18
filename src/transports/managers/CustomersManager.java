@@ -11,6 +11,14 @@ import java.util.Collection;
 public class CustomersManager {
     private Collection<Customer> container;
 
+
+    /**
+     * Creates a new instance of a manager of customers
+     */
+    public CustomersManager(){
+
+    }
+
     /**
      * @param customer The customer to search in this manager
      * @return True if is in this manager, false otherwise

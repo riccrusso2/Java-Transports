@@ -13,10 +13,10 @@ public class City {
      * @param province Represents the province of the city
      * @param zip Represents the zip code of the city
      */
-    public City(String name, String province, long zip) {
+    public City(String name, String province, long cap) {
         this.name = name;
         this.province = province;
-        this.cap = zip;
+        this.cap = cap;
     }
 
     public String getName() {
