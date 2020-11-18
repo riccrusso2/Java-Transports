@@ -3,10 +3,9 @@ package transports.domain_entities;
 
 import transports.enumerators.GoodType;
 import transports.enumerators.UnitMeasure;
-import transports.exceptions.InvalidMeasureException;
 
 /**
- * this class represent every good that is supported for  transports
+ * This ADT represents a good supported for transports
  * @see GoodType
  * @see UnitMeasure
  */
@@ -16,17 +15,50 @@ public class Good {
     private UnitMeasure unitMeasure;
 
     /**
-     * @param contentName  represents name of the good
-     * @param goodType represents type of the good
-     * @param unitMeasure represents unit measure unit of the good
-     * @throws InvalidMeasureException when goodType and unitMeasure are incompatible
+     * @param contentName Represents name of the good
+     * @param goodType Represents type of the good
+     * @param unitMeasure Represents the measure unit for the quantity of the good
+     *
      */
-    public Good(String contentName, GoodType goodType, UnitMeasure unitMeasure) throws InvalidMeasureException{
-        this.contentName = contentName;
+    /*
+        (EXCEPTIONAL CASES)
+            -Good type and unit of measure are incompatible
+    */
+    public Good(String contentName, GoodType goodType, UnitMeasure unitMeasure){
+        /*this.contentName = contentName;
         this.goodType = goodType;
         boolean isUnitValid = false;
 
-        switch (unitMeasure){
+
+        */
+
+    }
+
+    public Good(GoodType goodType) {
+        this.goodType = goodType;
+    }
+
+    public UnitMeasure getUnitMeasure() {
+        return unitMeasure;
+    }
+
+    public String getContentName() {
+        return contentName;
+    }
+
+    public GoodType getGoodType() {
+        return goodType;
+    }
+
+    /**
+     *
+     * @param goodType
+     * @param unitMeasure
+     * @return
+     */
+    private boolean areTypeAndUnitValid(GoodType goodType, UnitMeasure unitMeasure){
+        boolean isUnitValid = true;
+        /*switch (unitMeasure){
             case GR:
             case KG:
                 if(goodType==GoodType.SOLID||goodType==GoodType.WEED){
@@ -48,48 +80,11 @@ public class Good {
             this.unitMeasure = unitMeasure;
 
         }else{
-            /*
             //la throws verrà gestita in seguito da un try_catch e nel caso verrà richiamato un unità di misura di default
-             */
             throw new InvalidMeasureException(this.goodType,this.unitMeasure);
-        }
-
-        }
-
-    public Good(GoodType goodType) {
-        this.goodType = goodType;
+        }*/
+        return false;
     }
 
-
-    public UnitMeasure getUnitMeasure() {
-        return unitMeasure;
-    }
-
-
-    public void setUnitMeasure(UnitMeasure unitMeasure) {
-        this.unitMeasure = unitMeasure;
-    }
-
-
-
-    public String getContentName() {
-        return contentName;
-    }
-
-
-    public void setContentName(String contentName) {
-        this.contentName = contentName;
-    }
-
-
-
-    public GoodType getGoodType() {
-        return goodType;
-    }
-
-
-    public void setGoodType(GoodType goodType) {
-        this.goodType = goodType;
-    }
+    //TODO: Scrivere il contratto di areTypeAndUnitValid
 }
-

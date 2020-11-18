@@ -20,13 +20,14 @@ public class CustomersManager {
     }
 
     /**
-     * Takes care of adding customer in the collection container
+     * Takes care of adding customer in this manager
      * @param customer Represents a customer object, already existing, to be added
      *
      */
     /*
         (EXCEPTIONAL CASES)
             -Customer passed is null
+            -or is already in
     */
     public void insert(Customer customer){
 
@@ -44,6 +45,7 @@ public class CustomersManager {
     /*
         (EXCEPTIONAL CASES)
             -At least 1 param passed is null
+            -or the new customer is already in
     */
     public void insert(String name, String surname, String address, String fiscalCode, PaymentType paymentType){
 
@@ -55,7 +57,7 @@ public class CustomersManager {
      * @param newName The new name of the customer
      * @param newSurname The new surname of the customer
      * @param newFiscalCode The new fiscal code of the customer
-     * @throws  NullPointerException  when customer is null or one of the parameters is null
+     *
      */
     /*
         (EXCEPTIONAL CASES)
@@ -84,8 +86,8 @@ public class CustomersManager {
 
     /**
      * Takes care of modifying the address of the customer given
-     * @param customer customer object that will be modified
-     * @param newAddress the new address of the customer
+     * @param customer Customer object that will be modified
+     * @param newAddress The new address of the customer
      *
      */
     /*

@@ -1,25 +1,23 @@
 package transports.domain_entities;
 
 /**
- * this class represents the cities that will form a route
+ * This ADT represents a city of a route
  */
 public class City {
     private String name;
     private String province;
-    private int cap;
-
+    private long cap;
 
     /**
-     * @param name represent the name of the city
-     * @param province represent the province of the city
-     * @param cap represent the cap of the city
+     * @param name Represents the name of the city
+     * @param province Represents the province of the city
+     * @param zip Represents the zip code of the city
      */
-    public City(String name, String province, int cap) {
+    public City(String name, String province, long zip) {
         this.name = name;
         this.province = province;
-        this.cap = cap;
+        this.cap = zip;
     }
-
 
     public String getName() {
         return name;
@@ -37,11 +35,11 @@ public class City {
         this.province = province;
     }
 
-    public int getCap() {
+    public long getCap() {
         return cap;
     }
 
-    public void setCap(int cap) {
+    public void setCap(long cap) {
         this.cap = cap;
     }
 }

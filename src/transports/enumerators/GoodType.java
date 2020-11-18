@@ -2,7 +2,8 @@ package transports.enumerators;
 
 import transports.domain_entities.Good;
 
-/**this enumerator present the various types of Good
+/**
+ * This enumerator represents the various types of Good (intended as physical states)
  * @see Good
  *
  */
