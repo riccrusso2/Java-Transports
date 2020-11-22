@@ -1,8 +1,6 @@
 package transports.managers;
 
 import transports.domain_entities.Good;
-import transports.enumerators.GoodType;
-import transports.enumerators.UnitMeasure;
 
 import java.util.Collection;
 
@@ -43,20 +41,6 @@ public class GoodsManager {
 
     }
 
-    /**
-     * Takes care of instantiating a new good object and then add it in this manager
-     * @param contentName Represents the name of the content of the new good
-     * @param goodType Represents the type of the new good
-     * @param unitMeasure Represents the unit of measure of the new good
-     */
-    /*
-        (EXCEPTIONAL CASES)
-            -At least 1 param passed is null
-            -or the new good is already in
-    */
-    public void insert(String contentName, GoodType goodType, UnitMeasure unitMeasure){
-
-    }
 
     /**
      * Takes care of removing the good given
