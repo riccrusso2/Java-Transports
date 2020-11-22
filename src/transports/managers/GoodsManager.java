@@ -1,9 +1,7 @@
 package transports.managers;
 
-import transports.domain_entities.Customer;
 import transports.domain_entities.Good;
 import transports.enumerators.GoodType;
-import transports.enumerators.PaymentType;
 import transports.enumerators.UnitMeasure;
 
 import java.util.Collection;
@@ -23,8 +21,9 @@ public class GoodsManager {
     }
 
     /**
+     * Checks if the good provided exists in this manager
      * @param good The good to search in this manager
-     * @return True if is in this manager, false otherwise
+     * @return true - if is in this manager, false - otherwise
      */
     private boolean existsGood(Good good){
         return false;
@@ -32,7 +31,7 @@ public class GoodsManager {
 
     /**
      * Takes care of adding a good in this manager
-     * @param good Represents a good object, already existing, to be added
+     * @param good Represents a good object, already instantiated, to be added
      *
      */
     /*
@@ -45,7 +44,7 @@ public class GoodsManager {
     }
 
     /**
-     * Takes care of creating a new good object and then add it in this manager
+     * Takes care of instantiating a new good object and then add it in this manager
      * @param contentName Represents the name of the content of the new good
      * @param goodType Represents the type of the new good
      * @param unitMeasure Represents the unit of measure of the new good
@@ -60,48 +59,17 @@ public class GoodsManager {
     }
 
     /**
-     * Takes care of modifying the name, surname and fiscal code of the customer given
-     * @param unitMeasure Customer object that will be modified
-     *
+     * Takes care of removing the good given
+     * @param good Good object that will be removed from this manager
      */
     /*
         (EXCEPTIONAL CASES)
-
+            -Good is null
+            -or not in this manager
     */
-    public void modify(Good good, UnitMeasure unitMeasure){
-
-    }
-
-    /**
-     * Takes care of modifying the type of payment of the customer given
-     * @param customer Customer object that will be modified
-     * @param paymentType The new type of payment of the customer
-     *
-     */
-    /*
-        (EXCEPTIONAL CASES)
-            -Customer is null or not in this manager
-            -At least 1 param passed is null (except of customer)
-    */
-    public void modify(Customer customer,PaymentType paymentType){
-
-    }
-
-    /**
-     * Takes care of modifying the address of the customer given
-     * @param customer customer object that will be modified
-     * @param newAddress the new address of the customer
-     *
-     */
-    /*
-        (EXCEPTIONAL CASES)
-            -Customer is null or not in this manager
-            -At least 1 param passed is null (except of customer)
-    */
-    public void modify(Customer customer,String newAddress){
+    public void remove(Good good){
 
 
     }
 
-    //TODO: Finire a scrivere tutti i contratti delle modifiche
 }

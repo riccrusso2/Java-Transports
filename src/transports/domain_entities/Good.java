@@ -15,46 +15,28 @@ public class Good {
     private UnitMeasure unitMeasure;
 
     /**
+     * Instances a new Good with the data provided
      * @param contentName Represents name of the good
      * @param goodType Represents type of the good
      * @param unitMeasure Represents the measure unit for the quantity of the good
-     *
      */
     /*
         (EXCEPTIONAL CASES)
             -Good type and unit of measure are incompatible
     */
     public Good(String contentName, GoodType goodType, UnitMeasure unitMeasure){
-        /*this.contentName = contentName;
+        /*
+        this.contentName = contentName;
         this.goodType = goodType;
         boolean isUnitValid = false;
-
-
         */
-
-    }
-
-    public Good(GoodType goodType) {
-        this.goodType = goodType;
-    }
-
-    public UnitMeasure getUnitMeasure() {
-        return unitMeasure;
-    }
-
-    public String getContentName() {
-        return contentName;
-    }
-
-    public GoodType getGoodType() {
-        return goodType;
     }
 
     /**
-     *
-     * @param goodType
-     * @param unitMeasure
-     * @return
+     * Checks if good type and unit of measure of good are compatible
+     * @param goodType The good type
+     * @param unitMeasure The unit of measure
+     * @return true - if are compatible, false - otherwise
      */
     private boolean areTypeAndUnitValid(GoodType goodType, UnitMeasure unitMeasure){
         boolean isUnitValid = true;
@@ -86,5 +68,15 @@ public class Good {
         return false;
     }
 
-    //TODO: Scrivere il contratto di areTypeAndUnitValid
+    public UnitMeasure getUnitMeasure() {
+        return unitMeasure;
+    }
+
+    public String getContentName() {
+        return contentName;
+    }
+
+    public GoodType getGoodType() {
+        return goodType;
+    }
 }

@@ -14,6 +14,7 @@ public class Customer {
     private PaymentType paymentType;
 
     /**
+     * Instaces a new customer by providing its data
      * @param name Represents the customer's name
      * @param surname Represents the customer's surname
      * @param address Represents the customer's address
@@ -32,23 +33,12 @@ public class Customer {
         return name;
     }
 
-    public void setNameSurnameFiscalcode(String name,String surname,String fiscalCode){
-        this.fiscalCode= fiscalCode;
-        this.surname= surname;
-        this.name= name;
-    }
-
     public String getSurname() {
         return surname;
     }
 
-
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getFiscalCode() {
@@ -59,8 +49,5 @@ public class Customer {
         return paymentType;
     }
 
-    public void setPaymentType(PaymentType paymentType) {
-        this.paymentType = paymentType;
-    }
 }
 

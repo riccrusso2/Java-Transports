@@ -11,7 +11,7 @@ public class City {
     /**
      * @param name Represents the name of the city
      * @param province Represents the province of the city
-     * @param zip Represents the zip code of the city
+     * @param cap Represents the zip code of the city
      */
     public City(String name, String province, long cap) {
         this.name = name;
@@ -23,23 +23,9 @@ public class City {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
+    public String getProvince() { return province; }
 
     public long getCap() {
         return cap;
-    }
-
-    public void setCap(long cap) {
-        this.cap = cap;
     }
 }

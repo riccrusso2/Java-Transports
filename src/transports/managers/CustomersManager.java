@@ -110,7 +110,7 @@ public class CustomersManager {
 
     /**
      * Takes care of removing the customer given
-     * @param customer Customer object that will be removed
+     * @param customer Customer object that will be removed from this manager
      */
     /*
         (EXCEPTIONAL CASES)
