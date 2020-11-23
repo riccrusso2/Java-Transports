@@ -6,6 +6,7 @@ import java.util.Collection;
  * This ADT represents a truck supported for transports
  */
 public class Truck {
+
     private String plate;
     private double capacity;
     private Collection<Good> goodsSupported;
@@ -19,6 +20,19 @@ public class Truck {
      */
     public Truck(String plate, double capacity, Collection<Good> goodsSupported){
 
+    }
+
+
+    public String getPlate() {
+        return plate;
+    }
+
+    public double getCapacity() {
+        return capacity;
+    }
+
+    public Collection<Good> getGoodsSupported() {
+        return goodsSupported;
     }
 
 

@@ -42,20 +42,6 @@ public class CitiesManager {
 
     }
 
-    /**
-     * Takes care of creating a new customer object and then add it in this manager
-     * @param name The city's name
-     * @param province The city's province
-     * @param cap The city's zip
-     */
-    /*
-        (EXCEPTIONAL CASES)
-            -At least 1 param passed is null
-            -or the new city is already in
-    */
-    public void insert(String name,String province,long cap ){
-
-    }
 
     /**
      * Takes care of removing the city given
