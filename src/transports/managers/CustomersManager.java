@@ -15,7 +15,7 @@ public class CustomersManager {
      * Creates a new instance of a manager of customers
      */
     public CustomersManager(){
-
+    return true;
     }
 
     /**
