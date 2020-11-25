@@ -4,6 +4,7 @@ import transports.enumerators.PaymentType;
 
 /**
  *  This ADT represents a customer of the firm
+ *  linked to customerManager that will take care of manage a group of  them
  *  @see PaymentType
  */
 public class Customer {
