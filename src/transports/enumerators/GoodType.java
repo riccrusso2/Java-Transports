@@ -8,7 +8,6 @@ import transports.domain_entities.Good;
  *
  */
 public enum GoodType {
-    WEED,
     SOLID,
     LIQUID,
     GASEOUS,
