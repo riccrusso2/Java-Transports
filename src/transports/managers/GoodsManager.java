@@ -1,8 +1,8 @@
 package transports.managers;
 
-import transports.domain_entities.Customer;
 import transports.domain_entities.Good;
-import transports.exceptions.InvalidManagerInput;
+import transports.exceptions.InvalidManagerInputException;
+import transports.exceptions.NullinputException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -26,6 +26,7 @@ public class GoodsManager {
      * Checks if the good provided exists in this manager
      * @param good The good to search in this manager
      * @return true - if is in this manager, false - otherwise
+     * @throws NullinputException if the input is null
      */
     private boolean existsGood(Good good){
         return false;
@@ -34,7 +35,8 @@ public class GoodsManager {
     /**
      * Takes care of adding a good in this manager
      * @param good Represents a good object, already instantiated, to be added
-     *@throws InvalidManagerInput  good passed is null or already existing
+     *@throws InvalidManagerInputException  already existing
+     * @throws NullinputException if the input is null
      */
 
     public void insert(Good good){
@@ -45,7 +47,8 @@ public class GoodsManager {
     /**
      * Takes care of removing the good given
      * @param good Good object that will be removed from this manager
-     *@throws InvalidManagerInput  good passed is null or doesn't exist
+     *@throws InvalidManagerInputException  doesn't exist
+     * @throws NullinputException if the input is null
      */
 
     public void remove(Good good){

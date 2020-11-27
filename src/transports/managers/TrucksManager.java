@@ -1,8 +1,8 @@
 package transports.managers;
 
-import transports.domain_entities.Route;
 import transports.domain_entities.Truck;
-import transports.exceptions.InvalidManagerInput;
+import transports.exceptions.InvalidManagerInputException;
+import transports.exceptions.NullinputException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,6 +29,7 @@ public class TrucksManager {
      * Checks if the truck provided exists in this manager
      * @param truck The truck to search in this manager
      * @return true - if is in this manager, false - otherwise
+     * @throws NullinputException if the input is null
      */
     private boolean existsTruck(Truck truck){
         return false;
@@ -39,7 +40,8 @@ public class TrucksManager {
     /**
      * Takes care of adding a truck,already instantiaded, in this manager
      * @param truck Represents a truck object, already instantiated, to be added
-     *@throws InvalidManagerInput  truck passed is null or already in
+     *@throws InvalidManagerInputException  already in
+     * @throws NullinputException if the input is null
      */
 
     public void insert(Truck truck){
@@ -51,7 +53,8 @@ public class TrucksManager {
     /**
      * Takes care of removing the truck given
      * @param  truck  Truck object that will be removed from this manager
-     * @throws InvalidManagerInput  truck passed is null or doesn't exist
+     * @throws InvalidManagerInputException or doesn't exist
+     * @throws NullinputException if the input is null
      */
 
     public void remove(Truck truck){

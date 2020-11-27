@@ -2,7 +2,8 @@ package transports.managers;
 
 import transports.domain_entities.Customer;
 
-import transports.exceptions.InvalidManagerInput;
+import transports.exceptions.InvalidManagerInputException;
+import transports.exceptions.NullinputException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,6 +29,7 @@ public class CustomersManager {
     /**
      * @param customer The customer to search in this manager
      * @return True if is in this manager, false otherwise
+     * @throws NullinputException if the input is null
      */
     private boolean existsCustomer(Customer customer){
         return false;
@@ -39,7 +41,8 @@ public class CustomersManager {
     /**
      * Takes care of adding customer in this manager
      * @param customer Represents a customer object, already existing, to be added
-     * @throws InvalidManagerInput   Customer passed is null or already in
+     * @throws InvalidManagerInputException already in
+     * @throws NullinputException if the input is null
      */
 
     public void insert(Customer customer){
@@ -51,7 +54,8 @@ public class CustomersManager {
     /**
      * Takes care of removing the customer given
      * @param customer Customer object that will be removed from this manager
-     * @throws InvalidManagerInput   customer passed is null or doesn't exist
+     * @throws InvalidManagerInputException  or doesn't exist
+     * @throws NullinputException if the input is null
      */
 
     public void remove(Customer customer){

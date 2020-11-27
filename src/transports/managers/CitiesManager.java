@@ -2,9 +2,9 @@ package transports.managers;
 
 
 import transports.domain_entities.City;
-import transports.domain_entities.Good;
 import transports.enumerators.CitiesPosition;
-import transports.exceptions.InvalidManagerInput
+import transports.exceptions.InvalidManagerInputException
+import transports.exceptions.NullinputException
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,6 +32,7 @@ public class CitiesManager {
     /**
      * @param city The city to search in this manager
      * @return True if is in this manager, false otherwise
+     * @throws NullinputException if the input is null
      */
     private boolean existsCity(City city){
     }
@@ -39,7 +40,8 @@ public class CitiesManager {
     /**
      * Takes care of adding cities in this manager
      * @param city Represents a city object, already existing, to be added
-     * @throws InvalidManagerInput   city passed is null or is already in
+     * @throws InvalidManagerInputException   is already in
+     * @throws NullinputException if the input is null
      */
 
     public void insert(City city){
@@ -50,7 +52,9 @@ public class CitiesManager {
     /**
      * Takes care of removing the city given
      * @param city City object that will be removed from this manager
-     * @throws InvalidManagerInput   city passed is null or doesn't exist
+     * @throws InvalidManagerInputException   doesn't exist
+     * @throws NullinputException if the input is null
+     *
      */
 
     public void remove(City city){

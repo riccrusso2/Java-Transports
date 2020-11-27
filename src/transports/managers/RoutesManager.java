@@ -1,8 +1,8 @@
 package transports.managers;
 
-import transports.domain_entities.Customer;
 import transports.domain_entities.Route;
-import transports.exceptions.InvalidManagerInput;
+import transports.exceptions.InvalidManagerInputException;
+import transports.exceptions.NullinputException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,7 +24,8 @@ public class RoutesManager {
     /**
      * Takes care of adding a new route in this manager
      * @param route The route that will be added
-     * @throws InvalidManagerInput  route passed is null or already in
+     * @throws InvalidManagerInputException already in
+     * @throws NullinputException if the input is null
      */
 
     public void insert(Route route){
@@ -34,7 +35,8 @@ public class RoutesManager {
     /**
      * Takes care of removing a route already in this manager
      * @param route Route object that will be removed
-     * @throws InvalidManagerInput  route passed is null or doesn't exist
+     * @throws InvalidManagerInputException doesn't exist
+     * @throws NullinputException if the input is null
      */
     public void remove(Route route){
 
