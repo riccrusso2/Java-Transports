@@ -32,10 +32,10 @@ public class PeriodOccupied {
      * @return an array that contain the two dates
      */
     public int[] getDate() {
-       int[] date = new int[2];
+       /**Date[] date = new Date[2];
        date[0]= this.firstDate;
        date[1]= this.secondDate;
-       return date;
+       return date;*/
 
     }
 

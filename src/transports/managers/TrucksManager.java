@@ -53,7 +53,7 @@ public class TrucksManager {
     /**
      * Takes care of removing the truck given
      * @param  truck  Truck object that will be removed from this manager
-     * @throws InvalidManagerInputException or doesn't exist
+     * @throws InvalidManagerInputException  doesn't exist
      * @throws NullinputException if the input is null
      */
 

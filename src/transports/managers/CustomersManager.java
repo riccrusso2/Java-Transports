@@ -58,7 +58,8 @@ public class CustomersManager {
      * @throws NullinputException if the input is null
      */
 
-    public void remove(Customer customer){
+    public void remove(Customer customer) throws InvalidManagerInputException,NullinputException{
+
 
     }
 

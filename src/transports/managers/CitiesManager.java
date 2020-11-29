@@ -19,13 +19,12 @@ import java.util.Iterator;
 
 public class CitiesManager {
    private Collection<City> container;
-   private CitiesPosition position
 
 
     /**
-     * Creates a new instance of a manager of cities that are in the same geographical position
+     * Creates a new instance of a manager of cities
      */
-    public CitiesManager(CitiesPosition position){
+    public CitiesManager(){
 
     }
 
