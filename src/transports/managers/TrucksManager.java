@@ -2,11 +2,8 @@ package transports.managers;
 
 import transports.domain_entities.Truck;
 import transports.exceptions.InvalidManagerInputException;
-import transports.exceptions.NullinputException;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * This ADT is used to represent a manager for Truck available
@@ -28,8 +25,8 @@ public class TrucksManager {
     /**
      * Checks if the truck provided exists in this manager
      * @param truck The truck to search in this manager
-     * @return true - if is in this manager, false - otherwise
-     * @throws NullinputException if the input is null
+     * @return true - if the truck is in this manager, false - otherwise
+     * @throws NullPointerException if the input is null
      */
     private boolean existsTruck(Truck truck){
         return false;
@@ -38,10 +35,10 @@ public class TrucksManager {
 
 
     /**
-     * Takes care of adding a truck,already instantiaded, in this manager
-     * @param truck Represents a truck object, already instantiated, to be added
-     *@throws InvalidManagerInputException  already in
-     * @throws NullinputException if the input is null
+     * Takes care of adding a truck passed in this manager
+     * @param truck Represents a truck object,not present in this manaher to be added
+     *@throws InvalidManagerInputException If the truck is already in
+     * @throws NullPointerException If the input is null
      */
 
     public void insert(Truck truck){
@@ -53,8 +50,8 @@ public class TrucksManager {
     /**
      * Takes care of removing the truck given
      * @param  truck  Truck object that will be removed from this manager
-     * @throws InvalidManagerInputException  doesn't exist
-     * @throws NullinputException if the input is null
+     * @throws InvalidManagerInputException  If the truck passed doesn't exist
+     * @throws NullPointerException If the input is null
      */
 
     public void remove(Truck truck){
@@ -62,24 +59,5 @@ public class TrucksManager {
 
     }
 
-
-    /**
-     *it is based on the private  iterator method
-     * @param n is the number of trucks you want
-     * @return arrayList that contain n trucks you want
-     *
-     */
-    public ArrayList<Truck> getTrucksSupported(int n){
-
-    }
-
-    /**
-     * @return a standard iterator over the good of this collection
-     */
-    private Iterator<Truck> iterator(){
-        Iterator res= new Iterator(this.container);
-        return res;
-
-    }
 
 }
