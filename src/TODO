@@ -1,1 +1,7 @@
-Recheck all the methods contracts before implementing methods
+remove nullexception
+change the  input for periodOccupied constructor(Date)
+
+partiamo dalle eccezioni
+trovare un modo per l'input null
+
+come si collegano i manager
