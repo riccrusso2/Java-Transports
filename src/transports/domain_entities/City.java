@@ -1,8 +1,8 @@
 package transports.domain_entities;
 
 /**
- * This ADT represents a city of a route which will be a stage of a possible route
- * linked to cityManager that will take care of manage a group of them according to a criteror
+ * This ADT represents a city of a route which will be a stage of the route
+ *
  *
  */
 public class City {
@@ -11,11 +11,13 @@ public class City {
     private long cap;
 
     /**
+     * Instances a new city with the data provided
      * @param name Represents the name of the city
      * @param province Represents the province of the city
      * @param cap Represents the zip code of the city
+     * @throws NullPointerException if at least one of the parameters is null
      */
-    public City(String name, String province, long cap) {
+    public City(String name, String province, long cap) throws NullPointerException {
         this.name = name;
         this.province = province;
         this.cap = cap;

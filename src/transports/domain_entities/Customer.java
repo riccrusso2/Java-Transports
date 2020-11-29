@@ -4,7 +4,7 @@ import transports.enumerators.PaymentType;
 
 /**
  *  This ADT represents a customer of the firm
- *  linked to customerManager that will take care of manage a group of  them
+ *
  *  @see PaymentType
  */
 public class Customer {
@@ -21,8 +21,9 @@ public class Customer {
      * @param address Represents the customer's address
      * @param fiscalCode Represents the customer's fiscal code
      * @param paymentType Represents the type of payment selected by customer
+     * @throws NullPointerException if at least one of the parameters is null
      */
-    public Customer(String name, String surname, String address, String fiscalCode, PaymentType paymentType) {
+    public Customer(String name, String surname, String address, String fiscalCode, PaymentType paymentType) throws  NullPointerException {
         this.name = name;
         this.surname = surname;
         this.address = address;
