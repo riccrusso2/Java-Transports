@@ -15,8 +15,7 @@ public class TrucksManager {
     Collection<Truck> container;
 
     /**
-     *  creates a new instace of a manager of trucks
-     *
+     * Creates a new instace of a manager of trucks
      */
     public TrucksManager(){
 
@@ -37,7 +36,7 @@ public class TrucksManager {
     /**
      * Takes care of adding a truck passed in this manager
      * @param truck Represents a truck object,not present in this manaher to be added
-     *@throws InvalidManagerInputException If the truck is already in
+     * @throws InvalidManagerInputException If the truck is already in
      * @throws NullPointerException If the input is null
      */
 

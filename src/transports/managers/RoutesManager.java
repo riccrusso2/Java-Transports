@@ -21,44 +21,25 @@ public class RoutesManager {
 
     }
 
-    /**
-     * Takes care of adding a new route in this manager
-     * @param route The route that will be added
-     * @throws InvalidManagerInputException already in
-     * @throws NullinputException if the input is null
-     */
 
+    /**
+     * Takes care of adding a new route in this manager, if not present
+     * @param route The route that will be added, if not present
+     * @throws InvalidManagerInputException if is already in
+     * @throws NullPointerException if the input is null
+     */
     public void insert(Route route){
 
     }
 
+
     /**
      * Takes care of removing a route already in this manager
-     * @param route Route object that will be removed
-     * @throws InvalidManagerInputException doesn't exist
+     * @param route Route object that will be removed, if present
+     * @throws InvalidManagerInputException if doesn't exist
      * @throws NullinputException if the input is null
      */
     public void remove(Route route){
-
-    }
-
-
-    /**
-     *it is based on the private  iterator method
-     * @param n is the number of routes you want
-     * @return arrayList that contain n routes you want
-     *
-     */
-    public ArrayList<Route> getRoutesSupported(int n){
-
-    }
-
-    /**
-     * @return a standard iterator over the good of this collection
-     */
-    private Iterator<Route> iterator(){
-        Iterator res= new Iterator(this.container);
-        return res;
 
     }
 

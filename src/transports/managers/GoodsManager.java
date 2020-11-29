@@ -26,28 +26,30 @@ public class GoodsManager {
      * Checks if the good provided exists in this manager
      * @param good The good to search in this manager
      * @return true - if is in this manager, false - otherwise
-     * @throws NullinputException if the input is null
+     *
+     * @throws NullPointerException if the input is null
      */
     private boolean existsGood(Good good){
         return false;
     }
 
     /**
-     * Takes care of adding a good in this manager
-     * @param good Represents a good object, already instantiated, to be added
-     *@throws InvalidManagerInputException  already existing
-     * @throws NullinputException if the input is null
+     * Takes care of adding a good in this manager, if not present
+     * @param good Represents a good object, not present in this manager, to be added
+     *
+     * @throws InvalidManagerInputException if already present in this manager
+     * @throws NullPointerException if the input is null
      */
-
     public void insert(Good good){
 
     }
 
 
     /**
-     * Takes care of removing the good given
-     * @param good Good object that will be removed from this manager
-     *@throws InvalidManagerInputException  doesn't exist
+     * Takes care of removing the good given, if present in this manager
+     * @param good Good object that will be removed from this manager, if present
+     *
+     * @throws InvalidManagerInputException if doesn't exist
      * @throws NullinputException if the input is null
      */
 
