@@ -1,13 +1,11 @@
 package transports.domain_entities;
 
-import transports.exceptions.InvalidMeasureException
+import transports.exceptions.InvalidTypeMeasureException;
 import transports.enumerators.GoodType;
 import transports.enumerators.UnitMeasure;
 
 /**
- * This ADT represents a good supported for transports
- * linked to goodManager that will take care of manage a group of  them
- * each good is connected to a truck that transports it
+ * This ADT represents a good supported for transports.
  * @see GoodType
  * @see UnitMeasure
  */
@@ -17,29 +15,30 @@ public class Good {
     private UnitMeasure unitMeasure;
 
     /**
-     * Instances a new Good with the data provided
-     * before instances a mew good check if areTypeAndUnitValid returns True,  otherwise do nothing
+     * Instances a new Good with the data provided. Before that checks
+     * if type and unit of measure are compatible otherwise assign the default unit of measure for that type:
+     * SOLID    ---> KG
+     * LQUID    ---> L
+     * GASEOUS  ---> L
+     *
      * @param contentName Represents name of the good
      * @param goodType Represents type of the good
      * @param unitMeasure Represents the measure unit for the quantity of the good
+     * @throws NullPointerException if at least one of the parameters is null
      */
-
     public Good(String contentName, GoodType goodType, UnitMeasure unitMeasure) {
-        /*
-        this.contentName = contentName;
-        this.goodType = goodType;
-        boolean isUnitValid = false;
-        */
+
     }
 
     /**
-     * Checks if good type and unit of measure of good are compatible
+     * Checks if good type and unit of measure of a good are compatible
+     *
      * @param goodType The good type
      * @param unitMeasure The unit of measure
-     * @return true - if are compatible, false - otherwise
-     * @throws InvalidMeasureException if return False,so good type and unit of measure of good are compatible
+     * @return true - if are compatible
+     * @throws InvalidTypeMeasureException if are not compatible
      */
-    private boolean areTypeAndUnitValid(GoodType goodType, UnitMeasure unitMeasure)throws InvalidMeasureException{
+    private boolean areTypeAndUnitValid(GoodType goodType, UnitMeasure unitMeasure) throws InvalidTypeMeasureException {
         boolean isUnitValid = true;
         /*switch (unitMeasure){
             case GR:

@@ -8,7 +8,7 @@ I.E. solid L
 
  */
 
-public class InvalidMeasureException extends RuntimeException {
+public class InvalidTypeMeasureException extends RuntimeException {
     private GoodType goodType;
     private  UnitMeasure unitMeasure;
 
@@ -19,7 +19,7 @@ public class InvalidMeasureException extends RuntimeException {
      * @see GoodType
      * @see  UnitMeasure
      */
-    public InvalidMeasureException(GoodType goodType,UnitMeasure unitMeasure){
+    public InvalidTypeMeasureException(GoodType goodType, UnitMeasure unitMeasure){
         super("good type selected(" + goodType.toString()+") and unit measure("+ unitMeasure.toString()+") are incompatible");
         this.goodType = goodType;
         this.unitMeasure= unitMeasure;

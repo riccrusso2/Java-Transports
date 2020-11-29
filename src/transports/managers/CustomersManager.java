@@ -19,10 +19,7 @@ public class CustomersManager {
      */
     public CustomersManager(){
 
-
     }
-
-
 
     /**
      * @param customer The customer to search in this manager

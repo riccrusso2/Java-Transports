@@ -55,26 +55,4 @@ public class GoodsManager {
 
 
     }
-
-
-    /**
-     *it is based on the private  iterator method
-     * @param n is the number of good you want
-     * @return arrayList that contain n goods you want
-     *
-     */
-    public ArrayList<Good> getGoodsSupported(int n){
-
-    }
-
-    /**
-     * @return a standard iterator over the good of this collection
-     */
-    private Iterator<Good> iterator(){
-        Iterator res= new Iterator(this.container);
-        return res;
-
-    }
-
-
 }
