@@ -1,6 +1,7 @@
 package transports.managers;
 
 import transports.domain_entities.Truck;
+import transports.enumerators.GoodType;
 import transports.exceptions.InvalidManagerInputException;
 
 import java.util.Collection;
@@ -55,6 +56,18 @@ public class TrucksManager {
 
     public void remove(Truck truck){
 
+
+    }
+
+    /**
+     * check if in the collection there is a truck that can trasport the type of good passed
+     * and has a capacity greater equal than kg passed
+     *
+     * @param goodType type of good you want to transport
+     * @param kg weight of the goods you want to transport
+     * @return the truck that satisfied those conditions
+     */
+    public Truck findTruck(GoodType goodType,double kg){
 
     }
 

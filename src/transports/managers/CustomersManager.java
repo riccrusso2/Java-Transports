@@ -2,7 +2,6 @@ package transports.managers;
 
 import transports.domain_entities.Customer;
 import transports.exceptions.InvalidManagerInputException;
-import transports.exceptions.NullinputException;
 
 import java.util.Collection;
 
@@ -53,7 +52,7 @@ public class CustomersManager {
      * @throws NullPointerException if the input is null
      */
 
-    public void remove(Customer customer) throws InvalidManagerInputException,NullinputException{
+    public void remove(Customer customer) throws InvalidManagerInputException,NullPointerException{
 
 
     }

@@ -2,11 +2,8 @@ package transports.managers;
 
 import transports.domain_entities.Good;
 import transports.exceptions.InvalidManagerInputException;
-import transports.exceptions.NullinputException;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * This ADT is used to represent a manager for goods available
@@ -50,11 +47,26 @@ public class GoodsManager {
      * @param good Good object that will be removed from this manager, if present
      *
      * @throws InvalidManagerInputException if doesn't exist
-     * @throws NullinputException if the input is null
+     * @throws NullPointerException if the input is null
      */
 
     public void remove(Good good){
 
 
     }
+
+    /**
+     *search the container for a good with the associated name given
+     *
+     * @param goodName name of the good to search
+     * @return the good you are looking for if it present in this manager
+     * @throws InvalidManagerInputException if doesn't exist
+     * @throws NullPointerException if the input is null
+     */
+
+    public Good getGood(String goodName){
+
+    }
+
+
 }

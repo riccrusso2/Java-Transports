@@ -15,16 +15,14 @@ public class Transport {
     private Date dateEnd;
     private Truck truck;
 
-    /*
-        -st least 1 null
-        -dates incompatibles
-     */
+
     /**
-     * Instances a new transport with the data provided.
-     * @param transportRoutes
-     * @param dateStart
-     * @param dateEnd
-     * @param truck
+     * @param transportRoutes the list of transport routes
+     * @param dateStart the date of start of the transport
+     * @param dateEnd the date of end of the transport
+     * @param truck the truck for the transport
+     * @throws NullPointerException if at least one of the parameters is null
+     *
      */
     public Transport(List<Route> transportRoutes, Date dateStart, Date dateEnd, Truck truck){
 

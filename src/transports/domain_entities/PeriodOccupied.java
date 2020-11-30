@@ -1,4 +1,5 @@
 package transports.domain_entities;
+import transports.exceptions.InvalidDateException;
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ public class PeriodOccupied {
      * @param firstDate Represents the date since it is occupied
      * @param secondDate Represents the date until it is occupied
      *
-     * @throws Exception if 2nd date is less than the 1st one
+     * @throws InvalidDateException if 2nd date is less than the 1st one
      * @throws NullPointerException if at least one of the parameters is null
      */
     public PeriodOccupied(Truck truck, Date firstDate, Date secondDate ) throws NullPointerException {
@@ -32,11 +33,13 @@ public class PeriodOccupied {
      * @param date2
      * @return true - if the 1st date is less equal to the 2nd one
      *
-     * @throws Exception if 2nd date is less than the 1st one
+     * @throws InvalidDateException if 2nd date is less than the 1st one
      */
     public boolean areDatesCompatible(Date date1, Date date2) throws Exception {
         return false;
     }
+
+
 
     /**
      * creates an array containing the two start and end dates of the occupied period
@@ -49,6 +52,8 @@ public class PeriodOccupied {
          return date;*/
         return null;
     }
+
+
 
     public Truck getTruck() {
         return truck;
