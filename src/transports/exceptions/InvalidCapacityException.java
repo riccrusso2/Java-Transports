@@ -5,7 +5,7 @@ package transports.exceptions;
  *
  */
 
-public class InvalidCapacityException extends RuntimeException {
+public class InvalidCapacityException extends Exception {
     private double capacity;
 
 

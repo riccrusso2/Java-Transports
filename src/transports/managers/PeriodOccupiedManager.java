@@ -1,6 +1,7 @@
 package transports.managers;
 import transports.domain_entities.PeriodOccupied;
 import transports.exceptions.InvalidManagerInputException;
+import transports.exceptions.NullinputException;
 
 import java.util.Collection;
 
@@ -26,7 +27,7 @@ public class PeriodOccupiedManager {
      *
      * @param periodOccupied The period to search in this manager
      * @return true - if is in this manager, false - otherwise
-     * @throws NullPointerException if the input is null
+     * @throws NullinputException if the input is null
      */
     private boolean existsPeriod(PeriodOccupied periodOccupied) {
         return false;
@@ -38,7 +39,7 @@ public class PeriodOccupiedManager {
      *
      * @param periodOccupied Represents a period object, not present in this manager, to be added
      * @throws InvalidManagerInputException if is already in
-     * @throws NullPointerException         if the input is null
+     * @throws NullinputException         if the input is null
      */
     public void insert(PeriodOccupied periodOccupied) {
 
@@ -50,7 +51,7 @@ public class PeriodOccupiedManager {
      *
      * @param periodOccupied Period object that will be removed, if present, from this manager
      * @throws InvalidManagerInputException if doesn't exist
-     * @throws NullPointerException         if the input is null
+     * @throws NullinputException         if the input is null
      */
     public void remove(PeriodOccupied periodOccupied) {
 

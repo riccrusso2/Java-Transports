@@ -8,7 +8,7 @@ I.E. solid L
 
  */
 
-public class InvalidTypeMeasureException extends RuntimeException {
+public class InvalidTypeMeasureException extends Exception {
     private GoodType goodType;
     private  UnitMeasure unitMeasure;
 

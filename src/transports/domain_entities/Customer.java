@@ -1,6 +1,7 @@
 package transports.domain_entities;
 
 import transports.enumerators.PaymentType;
+import transports.exceptions.NullinputException;
 
 /**
  *  This ADT represents a customer of the firm
@@ -21,9 +22,9 @@ public class Customer {
      * @param address Represents the customer's address
      * @param fiscalCode Represents the customer's fiscal code
      * @param paymentType Represents the type of payment selected by customer
-     * @throws NullPointerException if at least one of the parameters is null
+     * @throws NullinputException if at least one of the parameters is null
      */
-    public Customer(String name, String surname, String address, String fiscalCode, PaymentType paymentType) throws  NullPointerException {
+    public Customer(String name, String surname, String address, String fiscalCode, PaymentType paymentType) throws  NullinputException {
         this.name = name;
         this.surname = surname;
         this.address = address;

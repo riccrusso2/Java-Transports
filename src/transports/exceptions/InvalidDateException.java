@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * This class represents an exception due to two incompatible dates
  */
-public class InvalidDateException extends RuntimeException {
+public class InvalidDateException extends Exception {
    private Date firstDate;
    private Date secondDate;
 

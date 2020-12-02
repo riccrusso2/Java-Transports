@@ -10,7 +10,7 @@ import transports.domain_entities.*;
  */
 
 
-public class InvalidManagerInputException extends RuntimeException {
+public class InvalidManagerInputException extends Exception {
      private City city;
      private Customer customer;
      private Good good;

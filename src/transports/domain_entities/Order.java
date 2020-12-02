@@ -12,5 +12,4 @@ public class Order {
     private Customer customer;
     private List<Transport> transportList;
 
-
 }

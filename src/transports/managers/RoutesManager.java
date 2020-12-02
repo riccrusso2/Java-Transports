@@ -2,6 +2,7 @@ package transports.managers;
 
 import transports.domain_entities.Route;
 import transports.exceptions.InvalidManagerInputException;
+import transports.exceptions.NullinputException;
 
 import java.util.Collection;
 import java.util.List;
@@ -24,7 +25,7 @@ public class RoutesManager {
      * Takes care of adding a new route in this manager, if not present
      * @param route The route that will be added, if not present
      * @throws InvalidManagerInputException if is already in
-     * @throws NullPointerException if the input is null
+     * @throws NullinputException if the input is null
      */
     public void insert(Route route){
 
@@ -35,7 +36,7 @@ public class RoutesManager {
      * Takes care of removing a route already in this manager
      * @param route Route object that will be removed, if present
      * @throws InvalidManagerInputException if doesn't exist
-     * @throws NullPointerException if the input is null
+     * @throws NullinputException if the input is null
      */
     public void remove(Route route){
 
@@ -48,9 +49,9 @@ public class RoutesManager {
      *
      * @param transportRoutes The list of transport to search in this manager
      * @return True if every route of the list is in this manager, false otherwise
-     * @throws NullPointerException if the input is null
+     * @throws NullinputException if the input is null
      */
-    private boolean existsListOfRoutes(List<Route> transportRoutes)throws NullPointerException{
+    private boolean existsListOfRoutes(List<Route> transportRoutes)throws NullinputException {
         return false;
     }
 
