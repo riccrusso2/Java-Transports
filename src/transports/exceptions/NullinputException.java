@@ -1,19 +1,16 @@
 package transports.exceptions;
 
 /**
- * this exception is called when the input of a manager method is null
+ * this class represent an exception due to a null input
  */
+public class NullinputException extends Exception{
+    private String msg;
 
-public class NullinputException extends RuntimeException{
 
-    /**
-     * this constructor recall the super to create a new instance of this object
-     * and print the sentence when the input is null
-     */
-    public class NullinputException(){
-        super("input given is Null");
+
+    public NullinputException(String msg){
+        super(msg);
+        this.msg=msg;
     }
-
-
 
 }

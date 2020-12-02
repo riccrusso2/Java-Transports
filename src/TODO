@@ -1,4 +1,10 @@
+metodo di gestione: asseumere in ogni costruttore di una domain entity che i dati passati
+(eccetto controlli di consistenza dei dati) siano accettabili. I controlli di disponibilità, di eventuali dati "aggregati",
+verranno fatti dal manager che si occupa delle instanze di quella domain entity
 
-creare le eccezioni mancanti
+le domain entity S che hanno nel loro stato concreto AGGREGATI, i loro manager (di ogni d.e. di S)
+avranno interazioni con i manager di quegli AGGREGATI
+
+finire le ultme due classi e due manager
 
 come si collegano i manager

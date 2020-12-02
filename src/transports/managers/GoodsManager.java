@@ -4,9 +4,7 @@ import transports.domain_entities.Good;
 import transports.exceptions.InvalidManagerInputException;
 import transports.exceptions.NullinputException;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * This ADT is used to represent a manager for goods available
@@ -27,7 +25,7 @@ public class GoodsManager {
      * @param good The good to search in this manager
      * @return true - if is in this manager, false - otherwise
      *
-     * @throws NullPointerException if the input is null
+     * @throws NullinputException if the input is null
      */
     private boolean existsGood(Good good){
         return false;
@@ -37,8 +35,8 @@ public class GoodsManager {
      * Takes care of adding a good in this manager, if not present
      * @param good Represents a good object, not present in this manager, to be added
      *
-     * @throws InvalidManagerInputException if already present in this manager
-     * @throws NullPointerException if the input is null
+     * @throws InvalidManagerInputException if already present (good with same name) in this manager
+     * @throws NullinputException if the input is null
      */
     public void insert(Good good){
 
@@ -57,4 +55,19 @@ public class GoodsManager {
 
 
     }
+
+    /**
+     *search the container for a good with the associated name given
+     *
+     * @param goodName name of the good to search
+     * @return the good you are looking for if it present in this manager
+     * @throws InvalidManagerInputException if doesn't exist
+     * @throws NullinputException if the input is null
+     */
+
+    public Good getGood(String goodName){
+        return null;
+    }
+
+
 }

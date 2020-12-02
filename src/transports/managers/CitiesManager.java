@@ -5,9 +5,7 @@ import transports.domain_entities.City;
 import transports.exceptions.InvalidManagerInputException;
 import transports.exceptions.NullinputException;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * This ADT is used to represent a manager for cities available
@@ -31,7 +29,7 @@ public class CitiesManager {
      * @param city The city to search in this manager
      * @return true - if is in this manager, false otherwise
      *
-     * @throws NullPointerException if the input is null
+     * @throws NullinputException if the input is null
      */
     private boolean existsCity(City city){
         return false;

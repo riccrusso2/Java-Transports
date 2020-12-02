@@ -4,9 +4,8 @@ import transports.domain_entities.Route;
 import transports.exceptions.InvalidManagerInputException;
 import transports.exceptions.NullinputException;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
+import java.util.List;
 
 /**
  * This ADT represents a manager of the routes available for the trucks
@@ -26,7 +25,7 @@ public class RoutesManager {
      * Takes care of adding a new route in this manager, if not present
      * @param route The route that will be added, if not present
      * @throws InvalidManagerInputException if is already in
-     * @throws NullPointerException if the input is null
+     * @throws NullinputException if the input is null
      */
     public void insert(Route route){
 
@@ -41,6 +40,19 @@ public class RoutesManager {
      */
     public void remove(Route route){
 
+    }
+
+
+
+    /**
+     * check if all the routes in the list passed are present in the collection
+     *
+     * @param transportRoutes The list of transport to search in this manager
+     * @return True if every route of the list is in this manager, false otherwise
+     * @throws NullinputException if the input is null
+     */
+    private boolean existsListOfRoutes(List<Route> transportRoutes)throws NullinputException {
+        return false;
     }
 
 }

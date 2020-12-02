@@ -3,12 +3,12 @@ import transports.enumerators.GoodType;
 import transports.enumerators.UnitMeasure;
 
 /**
-this exception represents an error of imcompatible unit measure and good type
+this exception represents an error of incompatible unit measure and good type
 I.E. solid L
 
  */
 
-public class InvalidTypeMeasureException extends RuntimeException {
+public class InvalidTypeMeasureException extends Exception {
     private GoodType goodType;
     private  UnitMeasure unitMeasure;
 

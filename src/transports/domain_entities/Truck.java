@@ -1,8 +1,9 @@
 package transports.domain_entities;
 
-import java.util.ArrayList;
+import transports.exceptions.InvalidCapacityException;
+import transports.exceptions.NullinputException;
+
 import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * This ADT represents a truck supported for transports
@@ -21,10 +22,10 @@ public class Truck {
      * @param capacity The max capacity of the truck
      * @param goodsSupported The collection of goods supported by the truck
      *
-     * @throws NullPointerException if at least one of the parameters is null
-     * @throws Exception if capacity is less equal than 0
+     * @throws NullinputException if at least one of the parameters is null
+     * @throws InvalidCapacityException if capacity is less equal than 0
      */
-    public Truck(String plate, double capacity, Collection<Good> goodsSupported) throws NullPointerException{
+    public Truck(String plate, double capacity, Collection<Good> goodsSupported) throws NullinputException{
 
     }
 

@@ -1,5 +1,7 @@
 package transports.domain_entities;
 
+import transports.exceptions.NullinputException;
+
 import java.util.Date;
 import java.util.List;
 
@@ -14,17 +16,17 @@ public class Transport {
     private Date dateStart;
     private Date dateEnd;
     private Truck truck;
+    private Good good;
+    private double quantity;
 
-    /*
-        -st least 1 null
-        -dates incompatibles
-     */
+
     /**
-     * Instances a new transport with the data provided.
-     * @param transportRoutes
-     * @param dateStart
-     * @param dateEnd
-     * @param truck
+     * @param transportRoutes the list of transport routes
+     * @param dateStart the date of start of the transport
+     * @param dateEnd the date of end of the transport
+     * @param truck the truck for the transport
+     * @throws NullinputException if at least one of the parameters is null
+     *
      */
     public Transport(List<Route> transportRoutes, Date dateStart, Date dateEnd, Truck truck){
 
