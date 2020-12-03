@@ -25,10 +25,40 @@ public class Transport {
      * @param dateStart the date of start of the transport
      * @param dateEnd the date of end of the transport
      * @param truck the truck for the transport
+     * @param good the good of the transport
+     * @param quantity the quantity of the good for the transport
      * @throws NullinputException if at least one of the parameters is null
      *
      */
-    public Transport(List<Route> transportRoutes, Date dateStart, Date dateEnd, Truck truck){
+    public Transport(List<Route> transportRoutes, Date dateStart, Date dateEnd, Truck truck,Good good,Double quantity){
 
+    }
+
+
+
+    public Route[] getTransportRoutes() {
+        return null;
+    }
+
+
+
+    public Date[] getDateStart() {
+        return null;
+    }
+
+
+
+    public Truck getTruck() {
+        return truck;
+    }
+
+
+    public Good getGood() {
+        return good;
+    }
+
+
+    public double getQuantity() {
+        return quantity;
     }
 }
