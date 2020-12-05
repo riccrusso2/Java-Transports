@@ -11,13 +11,14 @@ import java.util.Collection;
  */
 
 public class PeriodOccupiedManager {
-    Collection<PeriodOccupied> container;
+    private Collection<PeriodOccupied> container;
+    private TrucksManager trucksManager;
 
 
     /**
      * Creates a new instace of a manager of PeriodOccupied
      */
-    public PeriodOccupiedManager() {
+    public PeriodOccupiedManager(TrucksManager trucksManager) {
 
     }
 

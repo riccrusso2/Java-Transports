@@ -15,12 +15,13 @@ import java.util.List;
 
 
 public class TrucksManager {
-    Collection<Truck> container;
+    private Collection<Truck> container;
+    private GoodsManager goodsManager;
 
     /**
      * Creates a new instace of a manager of trucks
      */
-    public TrucksManager(){
+    public TrucksManager(GoodsManager goodsManager) {
 
     }
 
