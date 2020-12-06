@@ -1,6 +1,6 @@
 package transports.domain_entities;
 
-import transports.exceptions.NullinputException;
+import transports.exceptions.NullInputException;
 
 import java.time.Duration;
 import java.util.List;
@@ -21,9 +21,9 @@ public class Route {
      * @param gg Integer number of days of the mileage time
      * @param hh Integer number of hours of the mileage time
      * @param mm Integer number of minutes of the mileage time
-     * @throws NullinputException if at least one of the parameters is null
+     * @throws NullInputException if at least one of the parameters is null
      */
-    public Route(List<City> cities, int gg, int hh, int mm) throws NullinputException {
+    public Route(List<City> cities, int gg, int hh, int mm) throws NullInputException {
     }
 
     public List<City> getCities() {

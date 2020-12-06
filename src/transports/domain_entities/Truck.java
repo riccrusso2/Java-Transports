@@ -1,7 +1,7 @@
 package transports.domain_entities;
 
 import transports.exceptions.InvalidCapacityException;
-import transports.exceptions.NullinputException;
+import transports.exceptions.NullInputException;
 
 import java.util.Collection;
 
@@ -22,10 +22,10 @@ public class Truck {
      * @param capacity The max capacity of the truck
      * @param goodsSupported The collection of goods supported by the truck
      *
-     * @throws NullinputException if at least one of the parameters is null
+     * @throws NullInputException if at least one of the parameters is null
      * @throws InvalidCapacityException if capacity is less equal than 0
      */
-    public Truck(String plate, double capacity, Collection<Good> goodsSupported) throws NullinputException{
+    public Truck(String plate, double capacity, Collection<Good> goodsSupported) throws NullInputException {
 
     }
 

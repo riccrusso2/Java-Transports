@@ -2,21 +2,23 @@ package transports.managers;
 
 import transports.domain_entities.Route;
 import transports.exceptions.InvalidManagerInputException;
-import transports.exceptions.NullinputException;
-
+import transports.exceptions.NullInputException;
+import  transports.exceptions.InputNotAvaiableException;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * This ADT represents a manager of the routes available for the trucks
  */
 public class RoutesManager {
     private Collection<Route> container;
+    private CitiesManager citiesManager;
 
     /**
      * Creates an instance of a routes manager
+     * @param citiesManager The manager of cities
+     * @throws NullInputException if the parameter is null
      */
-    public RoutesManager() {
+    public RoutesManager(CitiesManager citiesManager) {
 
     }
 
@@ -25,7 +27,8 @@ public class RoutesManager {
      * Takes care of adding a new route in this manager, if not present
      * @param route The route that will be added, if not present
      * @throws InvalidManagerInputException if is already in
-     * @throws NullinputException if the input is null
+     * @throws NullInputException if the input is null
+     * @throws InputNotAvaiableException if at least one city in route is not present in the manager of cities
      */
     public void insert(Route route){
 
@@ -36,7 +39,7 @@ public class RoutesManager {
      * Takes care of removing a route already in this manager
      * @param route Route object that will be removed, if present
      * @throws InvalidManagerInputException if doesn't exist
-     * @throws NullinputException if the input is null
+     * @throws NullInputException if the input is null
      */
     public void remove(Route route){
 
@@ -45,13 +48,13 @@ public class RoutesManager {
 
 
     /**
-     * check if all the routes in the list passed are present in the collection
+     * check if  the route  passed is present in this manager
      *
-     * @param transportRoutes The list of transport to search in this manager
-     * @return True if every route of the list is in this manager, false otherwise
-     * @throws NullinputException if the input is null
+     * @param route the route to search in this manager
+     * @return True if the route  is in this manager, false otherwise
+     * @throws NullInputException if the input is null
      */
-    private boolean existsListOfRoutes(List<Route> transportRoutes)throws NullinputException {
+    public  boolean existRoute(Route route)throws NullInputException {
         return false;
     }
 

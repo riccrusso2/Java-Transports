@@ -1,7 +1,8 @@
 package transports.managers;
 import transports.domain_entities.PeriodOccupied;
 import transports.exceptions.InvalidManagerInputException;
-import transports.exceptions.NullinputException;
+import transports.exceptions.NullInputException;
+import transports.exceptions.InputNotAvaiableException;
 
 import java.util.Collection;
 
@@ -17,6 +18,8 @@ public class PeriodOccupiedManager {
 
     /**
      * Creates a new instace of a manager of PeriodOccupied
+     * @param trucksManager the manager of trucks
+     * @throws  NullInputException if the input is null
      */
     public PeriodOccupiedManager(TrucksManager trucksManager) {
 
@@ -28,9 +31,9 @@ public class PeriodOccupiedManager {
      *
      * @param periodOccupied The period to search in this manager
      * @return true - if is in this manager, false - otherwise
-     * @throws NullinputException if the input is null
+     * @throws NullInputException if the input is null
      */
-    private boolean existsPeriod(PeriodOccupied periodOccupied) {
+    public boolean existsPeriod(PeriodOccupied periodOccupied) {
         return false;
     }
 
@@ -40,7 +43,9 @@ public class PeriodOccupiedManager {
      *
      * @param periodOccupied Represents a period object, not present in this manager, to be added
      * @throws InvalidManagerInputException if is already in
-     * @throws NullinputException         if the input is null
+     * @throws NullInputException         if the input is null
+     * @throws InputNotAvaiableException if the truck associated is not present in manager of trucks
+     *                                   or if the interval associated to the period to be inserted is in another period with the same truck
      */
     public void insert(PeriodOccupied periodOccupied) {
 
@@ -52,11 +57,12 @@ public class PeriodOccupiedManager {
      *
      * @param periodOccupied Period object that will be removed, if present, from this manager
      * @throws InvalidManagerInputException if doesn't exist
-     * @throws NullinputException         if the input is null
+     * @throws NullInputException         if the input is null
      */
     public void remove(PeriodOccupied periodOccupied) {
 
 
     }
+
 }
 

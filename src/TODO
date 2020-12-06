@@ -5,6 +5,6 @@ verranno fatti dal manager che si occupa delle instanze di quella domain entity
 le domain entity S che hanno nel loro stato concreto AGGREGATI, i loro manager (di ogni d.e. di S)
 avranno interazioni con i manager di quegli AGGREGATI
 
-finire le ultme due classi e due manager
+Metodo di ugualianza tra stessi tipi di domain entities (per ogni d.e.)
 
-come si collegano i manager
+Per ogni metodo di un manager pensare al fatto di "dato necessario avviabile, per quel metodo " riscrivendo eventualmente i @throws nel contratto

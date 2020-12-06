@@ -1,6 +1,6 @@
 package transports.domain_entities;
 
-import transports.exceptions.NullinputException;
+import transports.exceptions.NullInputException;
 
 import java.util.Date;
 import java.util.List;
@@ -27,7 +27,7 @@ public class Transport {
      * @param truck the truck for the transport
      * @param good the good of the transport
      * @param quantity the quantity of the good for the transport
-     * @throws NullinputException if at least one of the parameters is null
+     * @throws NullInputException if at least one of the parameters is null
      *
      */
     public Transport(List<Route> transportRoutes, Date dateStart, Date dateEnd, Truck truck,Good good,Double quantity){
