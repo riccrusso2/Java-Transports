@@ -3,10 +3,9 @@ package transports.managers;
 import transports.domain_entities.Transport;
 import transports.exceptions.InputNotAvaiableException;
 import transports.exceptions.InvalidManagerInputException;
-import transports.exceptions.NullinputException;
+import transports.exceptions.NullInputException;
 
 import java.util.Collection;
-import java.util.List;
 
 /**
  * This ADT is used to represent a manager for Transports available
@@ -15,29 +14,29 @@ public class TransportsManager {
 
     private Collection<Transport> container;
     private PeriodOccupiedManager periodOccupied;
-    private TrucksManager trucks;
+    private TrucksManager trucksManager;
+    private RoutesManager routesManager;
 
     /**
-     * Instances a new transportManager that creates a collection of transport
+     * Instances a new manager of transport
      * @param periodOccupied the manager of period occupied
-     * @param trucks the manager of trucks
-     * @throws NullinputException
+     * @param trucksManager the manager of trucks
+     * @param routesManager the manager of routes
+     * @throws NullInputException at least one of the parameters is null
      */
 
-    public TransportsManager(PeriodOccupiedManager periodOccupied,TrucksManager trucks){
+    public TransportsManager(PeriodOccupiedManager periodOccupied,TrucksManager trucksManager,RoutesManager routesManager){
 
     }
 
     /**
-     * before inserting the transport in the container we need to check if
-     * there are trucks avaiable for that period
-     * there are trucks avaiable for those goods and quantities
-     * there is a route avaiable
-     *
+     *takes care of adding the transport in this manager
      * @param transport Represents a transport object, not present in this manager, to be added
      * @throws InvalidManagerInputException if is already in
-     * @throws NullinputException         if the input is null
-     * @throws InputNotAvaiableException if the at least one of the condition is not satisfied
+     * @throws NullInputException         if the input is null
+     * @throws InputNotAvaiableException if there aren't  trucks avaiable for that period
+     *                                   or there aren't trucks avaiable for those goods and quantities
+     *                                   or there aren't routes avaiable
      */
 
     public void insert(Transport transport){
@@ -45,13 +44,13 @@ public class TransportsManager {
     }
 
     /**
-     * Checks if all the transport provided exists in this manager
+     * Checks if  the transport provided exists in this manager
      *
-     * @param transport The list of  transport to search in this manager
+     * @param transport The  transport to search in this manager
      * @return true - if is in this manager, false - otherwise
-     * @throws NullinputException if the input is null
+     * @throws NullInputException if the input is null
      */
-    private boolean existsTransport(List<Transport>transport) {
+    public boolean existsTransport(Transport transport) {
         return false;
     }
 
@@ -64,7 +63,7 @@ public class TransportsManager {
      *
      * @param transport Transport object that will be removed, if present, from this manager
      * @throws InvalidManagerInputException if doesn't exist
-     * @throws NullinputException         if the input is null
+     * @throws NullInputException         if the input is null
      */
     public void remove(Transport transport) {
 

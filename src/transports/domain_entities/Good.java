@@ -3,7 +3,7 @@ package transports.domain_entities;
 import transports.exceptions.InvalidTypeMeasureException;
 import transports.enumerators.GoodType;
 import transports.enumerators.UnitMeasure;
-import transports.exceptions.NullinputException;
+import transports.exceptions.NullInputException;
 
 /**
  * This ADT represents a good supported for transports.
@@ -25,7 +25,7 @@ public class Good {
      * @param contentName Represents name of the good
      * @param goodType Represents type of the good
      * @param unitMeasure Represents the measure unit for the quantity of the good
-     * @throws NullinputException if at least one of the parameters is null
+     * @throws NullInputException if at least one of the parameters is null
      */
     public Good(String contentName, GoodType goodType, UnitMeasure unitMeasure) {
 

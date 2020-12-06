@@ -1,6 +1,6 @@
 package transports.domain_entities;
 import transports.exceptions.InvalidDateException;
-import transports.exceptions.NullinputException;
+import transports.exceptions.NullInputException;
 
 import java.util.Date;
 
@@ -19,9 +19,9 @@ public class PeriodOccupied {
      * @param secondDate Represents the date until it is occupied
      *
      * @throws InvalidDateException if 2nd date is less than the 1st one
-     * @throws NullinputException if at least one of the parameters is null
+     * @throws NullInputException if at least one of the parameters is null
      */
-    public PeriodOccupied(Truck truck, Date firstDate, Date secondDate ) throws NullinputException {
+    public PeriodOccupied(Truck truck, Date firstDate, Date secondDate ) throws NullInputException {
         this.truck = truck;
         this.firstDate = firstDate;
         this.secondDate = secondDate;

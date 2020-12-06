@@ -1,12 +1,11 @@
 package transports.managers;
 
 import transports.domain_entities.Truck;
-import transports.enumerators.GoodType;
+import transports.exceptions.InputNotAvaiableException;
 import transports.exceptions.InvalidManagerInputException;
-import transports.exceptions.NullinputException;
+import transports.exceptions.NullInputException;
 
 import java.util.Collection;
-import java.util.List;
 
 /**
  * This ADT is used to represent a manager for Truck available
@@ -20,6 +19,7 @@ public class TrucksManager {
 
     /**
      * Creates a new instace of a manager of trucks
+     * @param goodsManager the manager of goods
      */
     public TrucksManager(GoodsManager goodsManager) {
 
@@ -29,9 +29,9 @@ public class TrucksManager {
      * Checks if the truck provided exists in this manager
      * @param truck The truck to search in this manager
      * @return true - if the truck is in this manager, false - otherwise
-     * @throws NullinputException if the input is null
+     * @throws NullInputException if the input is null
      */
-    private boolean existsTruck(Truck truck){
+    public  boolean existsTruck(Truck truck){
         return false;
     }
 
@@ -39,9 +39,10 @@ public class TrucksManager {
 
     /**
      * Takes care of adding a truck passed in this manager
-     * @param truck Represents a truck object,not present in this manaher to be added
+     * @param truck Represents a truck object,not present in this manager to be added
      * @throws InvalidManagerInputException If the truck is already in
-     * @throws NullinputException If the input is null
+     * @throws NullInputException If the input is null
+     * @throws InputNotAvaiableException if at least one good associated with the truck is not present in the manager of goods
      */
 
     public void insert(Truck truck){
@@ -54,7 +55,7 @@ public class TrucksManager {
      * Takes care of removing the truck given
      * @param  truck  Truck object that will be removed from this manager
      * @throws InvalidManagerInputException  If the truck passed doesn't exist
-     * @throws NullinputException If the input is null
+     * @throws NullInputException If the input is null
      */
 
     public void remove(Truck truck){
@@ -62,17 +63,7 @@ public class TrucksManager {
 
     }
 
-    /**
-     * Check if in the collection there is a truck that can trasport the type of good passed
-     * and has a capacity greater equal than kg passed
-     *
-     * @param goodType type of good you want to transport
-     * @param kg weight of the goods you want to transport
-     * @return the truck that satisfied those conditions
-     */
-    public List<Truck> findTruck(GoodType goodType, double kg){
-        return null;
-    }
+
 
 
 }

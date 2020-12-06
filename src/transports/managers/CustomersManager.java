@@ -2,7 +2,7 @@ package transports.managers;
 
 import transports.domain_entities.Customer;
 import transports.exceptions.InvalidManagerInputException;
-import transports.exceptions.NullinputException;
+import transports.exceptions.NullInputException;
 
 import java.util.Collection;
 
@@ -22,11 +22,12 @@ public class CustomersManager {
     }
 
     /**
+     * Checks if the customer passed is in this manager
      * @param customer The customer to search in this manager
      * @return True if is in this manager, false otherwise
-     * @throws NullinputException if the input is null
+     * @throws NullInputException if the input is null
      */
-    private boolean existsCustomer(Customer customer)throws NullinputException {
+    public boolean existsCustomer(Customer customer)throws NullInputException {
         return false;
     }
 
@@ -37,10 +38,10 @@ public class CustomersManager {
      * Takes care of adding customer in this manager
      * @param customer Represents a customer object, already existing, to be added
      * @throws InvalidManagerInputException already in this manager
-     * @throws NullinputException if the input is null
+     * @throws NullInputException if the input is null
      */
 
-    public void insert(Customer customer) throws InvalidManagerInputException,NullinputException{
+    public void insert(Customer customer) throws InvalidManagerInputException, NullInputException {
 
     }
 
@@ -50,10 +51,10 @@ public class CustomersManager {
      * Takes care of removing the customer given
      * @param customer Customer object that will be removed from this manager
      * @throws InvalidManagerInputException  if the city doesn't exist
-     * @throws NullinputException if the input is null
+     * @throws NullInputException if the input is null
      */
 
-    public void remove(Customer customer) throws InvalidManagerInputException,NullinputException{
+    public void remove(Customer customer) throws InvalidManagerInputException, NullInputException {
 
 
     }

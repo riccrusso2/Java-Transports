@@ -1,5 +1,5 @@
 package transports.domain_entities;
-import transports.exceptions.NullinputException;
+import transports.exceptions.NullInputException;
 import java.util.List;
 
 /**
@@ -18,7 +18,7 @@ public class Order {
      * @param nOrder Represents the unique order number
      * @param customer Represents the customer associated with the order
      * @param transports Represent the list of transport associated with the order
-     * @throws NullinputException if at least one of the parameters is null
+     * @throws NullInputException if at least one of the parameters is null
      */
 
     public Order(int nOrder,Customer customer,List<Transport> transports){
