@@ -4,6 +4,7 @@ import transports.exceptions.NullInputException;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * This ADT summarizes all the components of an order
@@ -30,7 +31,7 @@ public class Order {
         }
         this.nOrder=nOrder;
         this.customer=customer;
-        this.transportList=transports;
+        this.transportList=new Vector<Transport>(transports);
 
 
     }

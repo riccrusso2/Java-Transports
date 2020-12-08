@@ -48,6 +48,7 @@ public class TransportsManager {
      *                                      or there aren't trucks avaiable for those goods and quantities
      *                                      or there aren't routes avaiable
      */
+    //i percorsi del trasporto devono essere collegati tra di loro
 
     public void insert(Transport transport) throws InvalidManagerInputException, NullInputException, InputNotAvaiableException {
 
