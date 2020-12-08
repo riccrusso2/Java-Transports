@@ -5,6 +5,7 @@ import transports.exceptions.NullInputException;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * This ADT represents a transport journey planned
@@ -33,7 +34,7 @@ public class Transport {
             throw new NullInputException("one of the parameters passed is null");
         }
 
-        this.transportRoutes=transportRoutes;
+        this.transportRoutes=new Vector<Route>(transportRoutes);
         this.periodOccupied=periodOccupied;
         this.good=good;
         this.quantity=quantity;
