@@ -31,7 +31,7 @@ public class RoutesManager {
      * @throws InputNotAvaiableException if at least one city in route is not present in the manager of cities
      */
     public void insert(Route route){
-
+        //TODO: Se inserisco da s -> t automaticamente inserisco anche il contrario
     }
 
 

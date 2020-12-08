@@ -16,7 +16,7 @@ public class Customer {
     private PaymentType paymentType;
 
     /**
-     * Instaces a new customer by providing its data
+     * Instances a new customer by providing its data
      * @param name Represents the customer's name
      * @param surname Represents the customer's surname
      * @param address Represents the customer's address
@@ -25,6 +25,9 @@ public class Customer {
      * @throws NullInputException if at least one of the parameters is null
      */
     public Customer(String name, String surname, String address, String fiscalCode, PaymentType paymentType) throws NullInputException {
+        if (name == null || surname == null || address == null || fiscalCode == null || paymentType == null){
+            throw new NullPointerException("One of the parameters passed is null");
+        }
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -52,5 +55,13 @@ public class Customer {
         return paymentType;
     }
 
+    @Override
+    public boolean equals(Object other){
+        if(other instanceof Customer) {
+            Customer otherCustomer = (Customer) other;
+            return this.getFiscalCode().equals(otherCustomer.getFiscalCode());
+        }
+        return false;
+    }
 }
 
