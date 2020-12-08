@@ -19,7 +19,7 @@ public class Good {
      * Instances a new Good with the data provided. Before that checks
      * if type and unit of measure are compatible otherwise assign the default unit of measure for that type:
      * SOLID    ---> KG
-     * LQUID    ---> L
+     * LIQUID    ---> L
      * GASEOUS  ---> L
      *
      * @param contentName Represents name of the good
@@ -27,7 +27,33 @@ public class Good {
      * @param unitMeasure Represents the measure unit for the quantity of the good
      * @throws NullInputException if at least one of the parameters is null
      */
-    public Good(String contentName, GoodType goodType, UnitMeasure unitMeasure) {
+    public Good(String contentName, GoodType goodType, UnitMeasure unitMeasure)throws NullInputException {
+        if (contentName == null || goodType == null || unitMeasure == null) {
+            throw new NullInputException("one of the parameters is null");
+        }
+        try {
+            areTypeAndUnitValid(goodType, unitMeasure);
+            this.unitMeasure=unitMeasure;
+        } catch (InvalidTypeMeasureException ex) {
+            if (goodType == GoodType.SOLID) {
+                this.unitMeasure = UnitMeasure.KG;
+
+            } else if (goodType == GoodType.LIQUID) {
+                this.unitMeasure = UnitMeasure.L;
+
+
+            } else if (goodType == GoodType.GASEOUS) {
+                this.unitMeasure = UnitMeasure.L;
+
+
+            }
+
+        }
+        finally {
+            this.contentName= contentName;
+            this.goodType= goodType;
+        }
+
 
     }
 
@@ -41,10 +67,10 @@ public class Good {
      */
     private boolean areTypeAndUnitValid(GoodType goodType, UnitMeasure unitMeasure) throws InvalidTypeMeasureException {
         boolean isUnitValid = true;
-        /*switch (unitMeasure){
+        switch (unitMeasure){
             case GR:
             case KG:
-                if(goodType==GoodType.SOLID||goodType==GoodType.WEED){
+                if(goodType==GoodType.SOLID){
                     isUnitValid= true;
                 }else{
                     isUnitValid= false;
@@ -59,14 +85,11 @@ public class Good {
                 }
                 break;
         }
-        if(isUnitValid){
-            this.unitMeasure = unitMeasure;
-
-        }else{
+        if(!isUnitValid){
             //la throws verrà gestita in seguito da un try_catch e nel caso verrà richiamato un unità di misura di default
-            throw new InvalidMeasureException(this.goodType,this.unitMeasure);
-        }*/
-        return false;
+            throw new InvalidTypeMeasureException(goodType,unitMeasure);
+        }
+        return isUnitValid;
     }
 
     public UnitMeasure getUnitMeasure() {
@@ -79,5 +102,17 @@ public class Good {
 
     public GoodType getGoodType() {
         return goodType;
+    }
+
+
+    @Override
+    public boolean equals(Object good) {
+        if(good instanceof Good){
+            Good good1 = (Good) good;
+            if(this.getContentName().equals(good1.getContentName()) && (this.getGoodType().equals(good1.getGoodType())) && (this.getUnitMeasure().equals(good1.getUnitMeasure()))){
+                return true;
+            }
+        }
+        return false;
     }
 }
