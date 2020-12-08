@@ -5,6 +5,7 @@ import transports.exceptions.InvalidManagerInputException;
 import transports.exceptions.NullInputException;
 
 import java.util.Collection;
+import java.util.Vector;
 
 /**
  * This ADT is used to represent a manager for goods available
@@ -17,6 +18,7 @@ public class GoodsManager {
      * Creates a new instance of a manager of goods
      */
     public GoodsManager(){
+        this.container= new Vector<Good>();
 
     }
 
@@ -27,8 +29,16 @@ public class GoodsManager {
      *
      * @throws NullInputException if the input is null
      */
-    public boolean existsGood(Good good){
-        return false;
+    public boolean existsGood(Good good)throws NullInputException{
+        if(good==null){
+            throw new NullInputException("the parameter passed is null");
+        }
+        if(this.container.contains(good)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     /**
@@ -38,7 +48,18 @@ public class GoodsManager {
      * @throws InvalidManagerInputException if already present (good with same name) in this manager
      * @throws NullInputException if the input is null
      */
-    public void insert(Good good){
+    public void insert(Good good)throws InvalidManagerInputException,NullInputException{
+        if(existsGood(good)){
+            throw new InvalidManagerInputException(good);
+        }
+        else if(good==null){
+            throw new NullInputException("the parameter passed is null");
+        }
+        else{
+            this.container.add(good);
+        }
+
+
 
     }
 
@@ -51,23 +72,20 @@ public class GoodsManager {
      * @throws NullInputException if the input is null
      */
 
-    public void remove(Good good){
+    public void remove(Good good)throws InvalidManagerInputException,NullInputException{
+        if(!existsGood(good)){
+            throw new InvalidManagerInputException(good);
+        }else if(good==null){
+            throw new NullInputException("the parameter passed is null");
+        }
+        else{
+            this.container.remove(good);
+        }
 
 
     }
 
-    /**
-     *search the container for a good with the associated name given
-     *
-     * @param goodName name of the good to search
-     * @return the good you are looking for if it present in this manager
-     * @throws InvalidManagerInputException if doesn't exist
-     * @throws NullInputException if the input is null
-     */
 
-    public Good getGood(String goodName){
-        return null;
-    }
 
 
 }

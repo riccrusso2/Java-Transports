@@ -19,9 +19,9 @@ public class InputNotAvaiableException extends Exception {
 
     /**
      *Instances an exception that represent the lack of  the route for the transport
-     * @param routes Represent the missing route
+     * @param route Represent the missing route
      */
-    public InputNotAvaiableException(List<Route> routes){
+    public InputNotAvaiableException(Route route){
 
      }
 
@@ -60,11 +60,11 @@ public class InputNotAvaiableException extends Exception {
 
     /**
      *Instances an exception that represent the lack of Transports for the order
-     * @param ListOfTransport Represent the list of transports not avaiable
+     * @param Transport Represent the transports not avaiable
 
      */
 
-    public InputNotAvaiableException(List<Transport> ListOfTransport){
+    public InputNotAvaiableException(Transport Transport){
 
     }
 

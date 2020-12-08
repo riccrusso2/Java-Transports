@@ -1,10 +1,14 @@
 package transports.managers;
 
 import transports.domain_entities.Order;
+import transports.domain_entities.Transport;
+import transports.exceptions.InputNotAvaiableException;
 import transports.exceptions.InvalidManagerInputException;
 import transports.exceptions.NullInputException;
-import transports.exceptions.InputNotAvaiableException;
+
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.Vector;
 
 /**
  *  This ADT is used to represent a manager for orders available
@@ -24,8 +28,13 @@ public class OrdersManager {
      * @param transportsManager the manager of the transports
      * @throws NullInputException at least one of the parameters is null
      */
-    public OrdersManager(CustomersManager customersManager,TransportsManager transportsManager){
-
+    public OrdersManager(CustomersManager customersManager,TransportsManager transportsManager)throws NullInputException{
+        if(customersManager==null||transportsManager==null){
+            throw new NullInputException("one of the parameters passed is null");
+        }
+        this.container= new Vector<Order>();
+        this.customersManager=customersManager;
+        this.transportsManager=transportsManager;
     }
 
     /**
@@ -35,23 +44,49 @@ public class OrdersManager {
      * @throws NullInputException if the input is null
      *
      */
-    public boolean existsOrder(Order order){
-        return false;
+    public boolean existsOrder(Order order) throws NullInputException{
+        if(order==null){
+            throw new NullInputException("the parameter passed is null");
+        }
+        if(this.container.contains(order)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 
 
     /**
      * Takes care of adding an order in this manager, if not present
-     * @throws InvalidManagerInputException If the Norder is already in
+     * @throws InvalidManagerInputException If there is an order with the same Norder already in
      * @throws NullInputException If the input is null
      * @throws  InputNotAvaiableException if the customer  associated with the order is not avaiable
      *                                    if at least one of  the transports associated  is not avaiable
      *
      */
 
-    public void insert(Order order){
+    public void insert(Order order)throws InvalidManagerInputException,NullInputException,InputNotAvaiableException{
+        if(order==null){
+            throw new NullInputException("the parameter passed is null");}
 
+        if(!this.customersManager.existsCustomer(order.getCustomer())){
+            throw new InputNotAvaiableException(order.getCustomer());}
+
+        Iterator<Transport> itTransport= order.getTransportList();
+        while(itTransport.hasNext()){
+            Transport checkTrasport= itTransport.next();
+            if(!this.transportsManager.existsTransport(checkTrasport)){
+                throw new InputNotAvaiableException(checkTrasport);
+            }
+        }
+
+        if(existsOrder(order)){
+            throw new InvalidManagerInputException(order);
+        }
+
+        this.container.add(order);
     }
 
 
@@ -59,18 +94,16 @@ public class OrdersManager {
     /**
      * Takes care of removing the order given
      * @param  order  order object that will be removed from this manager
-     * @throws InvalidManagerInputException  If the Number  of the order passed doesn't exist
+     * @throws InvalidManagerInputException  If the Number of the order passed doesn't exist
      * @throws NullInputException If the input is null
      */
 
-    public void remove(Order order){
-
-
+    public void remove(Order order)throws NullInputException,InvalidManagerInputException{
+        if(order==null){
+            throw new NullInputException("the parameter passed is null"); }
+        if(!existsOrder(order)){
+            throw new InvalidManagerInputException(order);}
+        this.container.remove(order);
     }
-
-
-
-
-
-
 }
+

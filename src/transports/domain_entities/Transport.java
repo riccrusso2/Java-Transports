@@ -1,8 +1,9 @@
 package transports.domain_entities;
 
+import transports.exceptions.InvalidDateException;
 import transports.exceptions.NullInputException;
 
-import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -13,44 +14,43 @@ import java.util.List;
  */
 public class Transport {
     private List<Route> transportRoutes;
-    private Date dateStart;
-    private Date dateEnd;
-    private Truck truck;
+    private PeriodOccupied periodOccupied;
     private Good good;
     private double quantity;
 
 
     /**
      * @param transportRoutes the list of transport routes
-     * @param dateStart the date of start of the transport
-     * @param dateEnd the date of end of the transport
-     * @param truck the truck for the transport
+     * @param periodOccupied the period occupied by the transport
      * @param good the good of the transport
      * @param quantity the quantity of the good for the transport
      * @throws NullInputException if at least one of the parameters is null
      *
      */
-    public Transport(List<Route> transportRoutes, Date dateStart, Date dateEnd, Truck truck,Good good,Double quantity){
 
+    public Transport(List<Route> transportRoutes, PeriodOccupied periodOccupied,Good good,Double quantity) throws NullInputException, InvalidDateException {
+        if(transportRoutes==null||transportRoutes.contains(null)||periodOccupied==null||good==null||quantity<=0){
+            throw new NullInputException("one of the parameters passed is null");
+        }
+
+        this.transportRoutes=transportRoutes;
+        this.periodOccupied=periodOccupied;
+        this.good=good;
+        this.quantity=quantity;
     }
 
 
 
-    public Route[] getTransportRoutes() {
-        return null;
+
+    public Iterator<Route> getTransportRoutes() {
+        return transportRoutes.iterator();
     }
 
 
-
-    public Date[] getDateStart() {
-        return null;
+    public PeriodOccupied getPeriodOccupied() {
+        return periodOccupied;
     }
 
-
-
-    public Truck getTruck() {
-        return truck;
-    }
 
 
     public Good getGood() {
@@ -61,4 +61,32 @@ public class Transport {
     public double getQuantity() {
         return quantity;
     }
+
+
+
+    @Override
+    public boolean equals(Object transport) {
+        if(transport instanceof Transport){
+            Transport transport1 = (Transport) transport;
+            if(getPeriodOccupied().equals(transport1.getPeriodOccupied()) && (this.getGood().equals(transport1.getGood())) && (this.getQuantity()==transport1.getQuantity()) && (isSameRoutes(transport1.getTransportRoutes()))){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isSameRoutes(Iterator<Route> routes){
+        Iterator<Route> itInputRoutes = routes;
+        Iterator<Route> itThisRoutes= getTransportRoutes();
+        while(itThisRoutes.hasNext() && itInputRoutes.hasNext()){
+            if(!itThisRoutes.next().equals(itInputRoutes.next())){
+                return false;
+            }
+        }
+        if(itThisRoutes.hasNext() || itInputRoutes.hasNext()){
+            return false;}
+        return true;
+    }
+
+
 }

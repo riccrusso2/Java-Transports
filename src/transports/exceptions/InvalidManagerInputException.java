@@ -16,6 +16,8 @@ public class InvalidManagerInputException extends Exception {
      private Good good;
      private Route route;
      private Truck truck;
+     private Order order;
+     private Transport transport;
 
 
     /**
@@ -64,5 +66,23 @@ public class InvalidManagerInputException extends Exception {
         this.truck = truck;
     }
 
+    /**
+     *
+     * @param order the city that called the exception
+     */
+    public InvalidManagerInputException(Order order){
+        super("order selected(" + order.toString()+")   already existing or not found ");
+        this.order = order;
+    }
+
+
+    /**
+     *
+     * @param transport the city that called the exception
+     */
+    public InvalidManagerInputException(Transport transport){
+        super("transport selected(" + transport.toString()+")   already existing or not found ");
+        this.transport = transport;
+    }
 
 }

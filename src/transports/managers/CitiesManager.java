@@ -6,6 +6,7 @@ import transports.exceptions.InvalidManagerInputException;
 import transports.exceptions.NullInputException;
 
 import java.util.Collection;
+import java.util.Vector;
 
 /**
  * This ADT is used to represent a manager for cities available
@@ -21,6 +22,7 @@ public class CitiesManager {
      * Creates a new instance of a manager of cities
      */
     public CitiesManager(){
+        this.container= new Vector<City>();
 
     }
 
@@ -31,8 +33,16 @@ public class CitiesManager {
      *
      * @throws NullInputException if the input is null
      */
-    public boolean existsCity(City city){
-        return false;
+    public boolean existsCity(City city)throws NullInputException {
+        if (city == null) {
+            throw new NullInputException("the parameter passed is null");
+
+        }
+        if (this.container.contains(city)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -42,7 +52,16 @@ public class CitiesManager {
      * @throws InvalidManagerInputException if is already in this manager
      * @throws NullInputException If the input is null
      */
-    public void insert(City city){
+    public void insert(City city)throws NullInputException, InvalidManagerInputException {
+        if(existsCity(city)){
+            throw new InvalidManagerInputException(city);
+        }
+        else if(city==null){
+            throw new NullInputException("the parameter passed is null");
+        }
+        else{
+            this.container.add(city);
+        }
 
     }
 
@@ -54,7 +73,15 @@ public class CitiesManager {
      * @throws InvalidManagerInputException if doesn't exist
      * @throws NullInputException if the input is null
      */
-    public void remove(City city){
+    public void remove(City city)throws InvalidManagerInputException,NullInputException{
+        if(!existsCity(city)){
+            throw new InvalidManagerInputException(city);
+        }else if(city==null){
+            throw new NullInputException("the parameter passed is null");
+        }
+        else{
+            this.container.remove(city);
+        }
 
 
     }
