@@ -17,6 +17,10 @@ public class InputNotAvaiableException extends Exception {
      private PeriodOccupied period;
 
 
+    public InputNotAvaiableException(City city){
+
+    }
+
     /**
      *Instances an exception that represent the lack of  the route for the transport
      * @param route Represent the missing route
@@ -67,6 +71,8 @@ public class InputNotAvaiableException extends Exception {
 
     }
 
+    public InputNotAvaiableException(Truck truck){
 
+    }
 
 }

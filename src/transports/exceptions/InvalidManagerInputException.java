@@ -11,13 +11,15 @@ import transports.domain_entities.*;
 
 
 public class InvalidManagerInputException extends Exception {
-     private City city;
-     private Customer customer;
-     private Good good;
-     private Route route;
-     private Truck truck;
-     private Order order;
-     private Transport transport;
+
+    private City city;
+    private Customer customer;
+    private Good good;
+    private Route route;
+    private Truck truck;
+    private Order order;
+    private Transport transport;
+    private PeriodOccupied periodOccupied;
 
 
     /**
@@ -28,6 +30,11 @@ public class InvalidManagerInputException extends Exception {
     public InvalidManagerInputException(City city){
         super("city selected(" + city.toString()+")  is Null , already existing or not found ");
         this.city = city;
+    }
+
+    public InvalidManagerInputException(PeriodOccupied periodOccupied){
+        super("city selected(" + periodOccupied.toString()+")  is Null , already existing or not found ");
+        this.periodOccupied = periodOccupied;
     }
 
     /**
@@ -83,6 +90,38 @@ public class InvalidManagerInputException extends Exception {
     public InvalidManagerInputException(Transport transport){
         super("transport selected(" + transport.toString()+")   already existing or not found ");
         this.transport = transport;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Good getGood() {
+        return good;
+    }
+
+    public Route getRoute() {
+        return route;
+    }
+
+    public Truck getTruck() {
+        return truck;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public Transport getTransport() {
+        return transport;
+    }
+
+    public PeriodOccupied getPeriodOccupied() {
+        return periodOccupied;
     }
 
 }

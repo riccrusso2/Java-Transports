@@ -85,6 +85,8 @@ public class PeriodOccupied {
     @Override
     public boolean equals(Object other){
         if(other instanceof PeriodOccupied){
+            if(this == other)
+                return true;
             PeriodOccupied otherPeriod = (PeriodOccupied) other;
             return Arrays.equals(this.getDates(), otherPeriod.getDates()) && this.getTruck().equals(otherPeriod.getTruck());
         }

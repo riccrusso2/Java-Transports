@@ -50,6 +50,8 @@ public class Route {
     @Override
     public boolean equals(Object other) {
         if(other instanceof Route){
+            if(this == other)
+                return true;
             Route otherRoute = (Route) other;
             return this.getDuration().equals(otherRoute.getDuration()) && isSameCities(otherRoute.getCities());
         }

@@ -1,10 +1,10 @@
-metodo di gestione: asseumere in ogni costruttore di una domain entity che i dati passati
-(eccetto controlli di consistenza dei dati) siano accettabili. I controlli di disponibilità, di eventuali dati "aggregati",
-verranno fatti dal manager che si occupa delle instanze di quella domain entity
+PROBLEMA GROSSO:
+   Gestire la consistenza dei dati:
+        In pratica alcuni remove() devono rimuovere oggetti e eventualmente gli aggregati associati
 
-le domain entity S che hanno nel loro stato concreto AGGREGATI, i loro manager (di ogni d.e. di S)
-avranno interazioni con i manager di quegli AGGREGATI
+        es. Se elimino un customer X dovrò rimuovere anche tutti gli ordini associati a X
+            ecc...
+            (Per ora ho fatto solo l'eliminazione singola)
 
-Metodo di ugualianza tra stessi tipi di domain entities (per ogni d.e.)
 
 Per ogni metodo di un manager pensare al fatto di "dato necessario avviabile, per quel metodo " riscrivendo eventualmente i @throws nel contratto

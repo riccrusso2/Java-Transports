@@ -1,10 +1,13 @@
 package transports.managers;
 import transports.domain_entities.PeriodOccupied;
+import transports.domain_entities.Truck;
 import transports.exceptions.InvalidManagerInputException;
 import transports.exceptions.NullInputException;
 import transports.exceptions.InputNotAvaiableException;
 
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.Vector;
 
 /**
  * This ADT is used to represent a manager for periods (of use) occupied by trucks
@@ -22,7 +25,10 @@ public class PeriodOccupiedManager {
      * @throws  NullInputException if the input is null
      */
     public PeriodOccupiedManager(TrucksManager trucksManager) {
-
+        if(trucksManager == null)
+            throw new NullPointerException("The manager passed is null");
+        this.container = new Vector<PeriodOccupied>();
+        this.trucksManager = trucksManager;
     }
 
 
@@ -33,8 +39,10 @@ public class PeriodOccupiedManager {
      * @return true - if is in this manager, false - otherwise
      * @throws NullInputException if the input is null
      */
-    public boolean existsPeriod(PeriodOccupied periodOccupied) {
-        return false;
+    public boolean existsPeriod(PeriodOccupied periodOccupied) throws NullInputException {
+        if(periodOccupied == null)
+            throw new NullPointerException("The period passed is null");
+        return this.container.contains(periodOccupied);
     }
 
 
@@ -47,8 +55,25 @@ public class PeriodOccupiedManager {
      * @throws InputNotAvaiableException if the truck associated is not present in manager of trucks
      *                                   or if the interval associated to the period to be inserted is in another period with the same truck
      */
-    public void insert(PeriodOccupied periodOccupied) {
-
+    public void insert(PeriodOccupied periodOccupied) throws NullInputException, InvalidManagerInputException, InputNotAvaiableException {
+        if(periodOccupied == null)
+            throw new NullInputException("The period passed is null");
+        if(existsPeriod(periodOccupied))
+            throw new InvalidManagerInputException(periodOccupied);
+        Truck periodTruck = periodOccupied.getTruck();
+        if(!this.trucksManager.existsTruck(periodTruck))
+            throw new InputNotAvaiableException(periodTruck);
+        Iterator<PeriodOccupied> itPeriods = this.container.iterator();
+        while(itPeriods.hasNext()) {
+            PeriodOccupied currPeriod = itPeriods.next();
+            if(currPeriod.getTruck().equals(periodTruck)) {
+                if(currPeriod.containsPeriod(periodOccupied) || periodOccupied.containsPeriod(currPeriod)){
+                    //"The period passed is partially (or totally) a part of another occupied period for that truck"
+                    throw new InputNotAvaiableException(periodOccupied);
+                }
+            }
+        }
+        this.container.add(periodOccupied);
     }
 
 
@@ -59,9 +84,12 @@ public class PeriodOccupiedManager {
      * @throws InvalidManagerInputException if doesn't exist
      * @throws NullInputException         if the input is null
      */
-    public void remove(PeriodOccupied periodOccupied) {
-
-
+    public void remove(PeriodOccupied periodOccupied) throws InvalidManagerInputException, NullInputException {
+        if(periodOccupied == null)
+            throw new NullInputException("The period passed is null");
+        if(!existsPeriod(periodOccupied))
+            throw new InvalidManagerInputException(periodOccupied);
+        this.container.remove(periodOccupied);
     }
 
 }

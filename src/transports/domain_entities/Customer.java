@@ -58,6 +58,8 @@ public class Customer {
     @Override
     public boolean equals(Object other){
         if(other instanceof Customer) {
+            if(this == other)
+                return true;
             Customer otherCustomer = (Customer) other;
             return this.getFiscalCode().equals(otherCustomer.getFiscalCode());
         }

@@ -49,6 +49,8 @@ public class Truck {
     @Override
     public boolean equals(Object other) {
         if (other instanceof Truck){
+            if(this == other)
+                return true;
             Truck otherTruck = (Truck) other;
             return  this.getPlate().equals(otherTruck.getPlate()) &&
                     this.getCapacity() == otherTruck.getCapacity() &&
