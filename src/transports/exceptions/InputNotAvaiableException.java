@@ -29,9 +29,8 @@ public class InputNotAvaiableException extends Exception {
     /**
      *Instances an exception that represent the lack of  truck for those good or quantity
      * @param good Represent the goods you wanted to transport
-     * @param quantities Represent the quantity of good you wanted to transport
      */
-    public InputNotAvaiableException(Good good, double quantities){
+    public InputNotAvaiableException(Good good){
 
     }
 

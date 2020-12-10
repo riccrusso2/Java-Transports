@@ -1,8 +1,10 @@
 package transports.managers;
 
+import transports.domain_entities.Good;
 import transports.domain_entities.Route;
 import transports.domain_entities.Transport;
 import transports.exceptions.InputNotAvaiableException;
+import transports.exceptions.InvalidCapacityException;
 import transports.exceptions.InvalidManagerInputException;
 import transports.exceptions.NullInputException;
 
@@ -50,7 +52,7 @@ public class TransportsManager {
      */
     //i percorsi del trasporto devono essere collegati tra di loro
 
-    public void insert(Transport transport) throws InvalidManagerInputException, NullInputException, InputNotAvaiableException {
+    public void insert(Transport transport) throws InvalidManagerInputException, NullInputException, InputNotAvaiableException, InvalidCapacityException {
 
         // TODO: Controllare se il truck associato è disponibile nel periodo scritto nel transport
         // TODO: Dopo questa sopra, controllare se
@@ -71,8 +73,18 @@ public class TransportsManager {
         if (this.periodOccupiedManager.existsPeriod(transport.getPeriodOccupied())) {
             throw new InputNotAvaiableException(transport.getPeriodOccupied());
         }
-
-
+        Iterator<Good> itGood= transport.getPeriodOccupied().getTruck().getGoodsSupported();
+        while(itGood.hasNext()){
+            if(itGood.next().equals(transport.getGood())){
+                if(transport.getPeriodOccupied().getTruck().getCapacity()<transport.getQuantity()){
+                    throw new InvalidCapacityException(transport.getQuantity());
+                }else {
+                    this.container.add(transport);
+                    break;
+                }
+            }
+        }
+        throw new InputNotAvaiableException(transport.getGood());
     }
 
     /**
