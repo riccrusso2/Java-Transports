@@ -8,3 +8,13 @@ avranno interazioni con i manager di quegli AGGREGATI
 Metodo di ugualianza tra stessi tipi di domain entities (per ogni d.e.)
 
 Per ogni metodo di un manager pensare al fatto di "dato necessario avviabile, per quel metodo " riscrivendo eventualmente i @throws nel contratto
+
+ order transpor
+
+
+
+
+
+
+
+metodi equals aggregati
