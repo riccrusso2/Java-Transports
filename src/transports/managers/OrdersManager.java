@@ -104,6 +104,11 @@ public class OrdersManager {
         if(!existsOrder(order)){
             throw new InvalidManagerInputException(order);}
         this.container.remove(order);
+        this.customersManager.remove(order.getCustomer());
+        Iterator<Transport> itTransport= order.getTransportList();
+        while(itTransport.hasNext()){
+            this.transportsManager.remove(itTransport.next());
+        }
     }
 }
 

@@ -2,8 +2,6 @@ package transports.exceptions;
 
 import transports.domain_entities.*;
 
-import java.util.List;
-
 /**
  * this class represent an exception called when you try to insert a transport and there are no conditions to do it
  * such us the luck of truck for those good and quantities or for that period.
@@ -11,10 +9,11 @@ import java.util.List;
  */
 
 public class InputNotAvaiableException extends Exception {
-     private List<Route> routes;
+     private Route route;
      private Good good;
-     private double quantities;
+     private Transport transport;
      private PeriodOccupied period;
+     private Customer customer;
 
 
     public InputNotAvaiableException(City city){
@@ -27,6 +26,9 @@ public class InputNotAvaiableException extends Exception {
      */
     public InputNotAvaiableException(Route route){
 
+        super("this "+ route.toString() + " is not avaiable for the transport" );
+        this.route= route;
+
      }
 
 
@@ -35,7 +37,8 @@ public class InputNotAvaiableException extends Exception {
      * @param good Represent the goods you wanted to transport
      */
     public InputNotAvaiableException(Good good){
-
+        super("this "+ good.toString() + " is not avaiable for the transport" );
+        this.good= good;
     }
 
 
@@ -45,7 +48,8 @@ public class InputNotAvaiableException extends Exception {
 
      */
     public InputNotAvaiableException(PeriodOccupied periodOccupied){
-
+        super("this "+ periodOccupied.toString() + " is not avaiable for the transport" );
+        this.period=periodOccupied;
     }
 
 
@@ -56,18 +60,21 @@ public class InputNotAvaiableException extends Exception {
      */
 
     public InputNotAvaiableException(Customer customer){
-
+        super("this "+ customer.toString() + " is not avaiable for the transport" );
+        this.customer=customer;
     }
 
 
 
     /**
      *Instances an exception that represent the lack of Transports for the order
-     * @param Transport Represent the transports not avaiable
+     * @param transport Represent the transports not avaiable
 
      */
 
-    public InputNotAvaiableException(Transport Transport){
+    public InputNotAvaiableException(Transport transport){
+        super("this "+ transport.toString() + " is not avaiable for the transport" );
+        this.transport=transport;
 
     }
 

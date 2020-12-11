@@ -118,6 +118,12 @@ public class TransportsManager {
 
         }
         this.container.remove(transport);
+        this.periodOccupiedManager.remove(transport.getPeriodOccupied());
+        this.trucksManager.remove(transport.getPeriodOccupied().getTruck());
+        Iterator<Route> itRoute= transport.getTransportRoutes();
+        while (itRoute.hasNext()){
+            this.routesManager.remove(itRoute.next());
+        }
 
 
     }
