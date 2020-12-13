@@ -14,7 +14,7 @@ import java.util.Vector;
  */
 
 
-public class CitiesManager {
+public class CitiesManager  {
     private Collection<City> container;
 
 
