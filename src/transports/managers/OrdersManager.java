@@ -16,11 +16,9 @@ import java.util.Vector;
  */
 
 public class OrdersManager {
-
     private Collection<Order> container;
     private CustomersManager customersManager;
     private TransportsManager transportsManager;
-
 
     /**
      * creates a new instance of manager of orders
@@ -37,6 +35,10 @@ public class OrdersManager {
         this.transportsManager=transportsManager;
     }
 
+    private Collection<Order> getContainer() {
+        return container;
+    }
+
     /**
      * Checks if the Order provided exists in this manager
      * @param order The order to search in this manager
@@ -48,7 +50,7 @@ public class OrdersManager {
         if(order==null){
             throw new NullInputException("the parameter passed is null");
         }
-        if(this.container.contains(order)){
+        if(getContainer().contains(order)){
             return true;
         }
         else{
@@ -104,11 +106,6 @@ public class OrdersManager {
         if(!existsOrder(order)){
             throw new InvalidManagerInputException(order);}
         this.container.remove(order);
-        this.customersManager.remove(order.getCustomer());
-        Iterator<Transport> itTransport= order.getTransportList();
-        while(itTransport.hasNext()){
-            this.transportsManager.remove(itTransport.next());
-        }
     }
 }
 
