@@ -12,14 +12,18 @@ import java.util.Vector;
  * @see Customer
  */
 public class CustomersManager {
-    private Collection<Customer> container;
 
+    private Collection<Customer> container;
 
     /**
      * Creates a new instance of a manager of customers
      */
     public CustomersManager(){
         this.container = new Vector<Customer>();
+    }
+
+    private Collection<Customer> getContainer() {
+        return this.container;
     }
 
     /**
@@ -31,7 +35,7 @@ public class CustomersManager {
     public boolean existsCustomer(Customer customer)throws NullInputException {
         if(customer == null)
             throw new NullInputException("The customer passed is null");
-        return this.container.contains(customer);
+        return getContainer().contains(customer);
     }
 
 
@@ -49,7 +53,7 @@ public class CustomersManager {
             throw new NullInputException("The customer passed is null");
         if(existsCustomer(customer))
             throw new InvalidManagerInputException(customer);
-        this.container.add(customer);
+        getContainer().add(customer);
     }
 
 
@@ -66,7 +70,7 @@ public class CustomersManager {
             throw new NullInputException("The customer passed is null");
         if(!existsCustomer(customer))
             throw new InvalidManagerInputException(customer);
-        this.container.remove(customer);
+        getContainer().remove(customer);
     }
 
 

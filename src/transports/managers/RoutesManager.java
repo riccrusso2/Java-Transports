@@ -1,6 +1,7 @@
 package transports.managers;
 
 import transports.domain_entities.City;
+import transports.domain_entities.Customer;
 import transports.domain_entities.Route;
 import transports.exceptions.InvalidManagerInputException;
 import transports.exceptions.NullInputException;
@@ -29,6 +30,10 @@ public class RoutesManager {
         this.citiesManager = citiesManager;
     }
 
+    private Collection<Route> getContainer() {
+        return this.container;
+    }
+
 
     /**
      * Takes care of adding a new route in this manager, if not present
@@ -42,6 +47,7 @@ public class RoutesManager {
             throw new NullInputException("The route passed is null");
         if(existRoute(route))
             throw new InvalidManagerInputException(route);
+
         Iterator<City> itCities = route.getCities();
         List<City> cities = new ArrayList<City>();
         while (itCities.hasNext()) {
@@ -51,11 +57,13 @@ public class RoutesManager {
             }
             cities.add(currCity);
         }
-        this.container.add(route);
 
         Duration duration = route.getDuration();
         Collections.reverse(cities);
         Route reverse = new Route(cities, (int)Math.floor(duration.toSeconds()/86400), (int)Math.floor(duration.toSeconds()/3600), (int)Math.floor(duration.toSeconds()/60));
+
+        getContainer().add(route);
+        getContainer().add(reverse);
     }
 
 
@@ -65,8 +73,13 @@ public class RoutesManager {
      * @throws InvalidManagerInputException if doesn't exist
      * @throws NullInputException if the input is null
      */
-    public void remove(Route route){
+    public void remove(Route route) throws NullInputException, InputNotAvaiableException {
+        if(route == null)
+            throw new NullInputException("The route passed is null");
+        if(!existRoute(route))
+            throw new InputNotAvaiableException(route);
 
+        getContainer().remove(route);
     }
 
 
@@ -79,7 +92,10 @@ public class RoutesManager {
      * @throws NullInputException if the input is null
      */
     public  boolean existRoute(Route route)throws NullInputException {
-        return false;
+        if(route == null)
+            throw new NullInputException("The route passed is null");
+
+        return getContainer().contains(route);
     }
 
 }

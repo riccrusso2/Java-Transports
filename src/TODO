@@ -5,16 +5,3 @@ PROBLEMA GROSSO:
         es. Se elimino un customer X dovrò rimuovere anche tutti gli ordini associati a X
             ecc...
             (Per ora ho fatto solo l'eliminazione singola)
-
-
-Per ogni metodo di un manager pensare al fatto di "dato necessario avviabile, per quel metodo " riscrivendo eventualmente i @throws nel contratto
-
- order transpor
-
-
-
-
-
-
-
-metodi equals aggregati

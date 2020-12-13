@@ -31,6 +31,9 @@ public class PeriodOccupiedManager {
         this.trucksManager = trucksManager;
     }
 
+    public Collection<PeriodOccupied> getContainer(){
+        return this.container;
+    }
 
     /**
      * Checks if the period provided exists in this manager
@@ -42,7 +45,7 @@ public class PeriodOccupiedManager {
     public boolean existsPeriod(PeriodOccupied periodOccupied) throws NullInputException {
         if(periodOccupied == null)
             throw new NullPointerException("The period passed is null");
-        return this.container.contains(periodOccupied);
+        return getContainer().contains(periodOccupied);
     }
 
 
@@ -60,20 +63,20 @@ public class PeriodOccupiedManager {
             throw new NullInputException("The period passed is null");
         if(existsPeriod(periodOccupied))
             throw new InvalidManagerInputException(periodOccupied);
-        Truck periodTruck = periodOccupied.getTruck();
-        if(!this.trucksManager.existsTruck(periodTruck))
-            throw new InputNotAvaiableException(periodTruck);
-        Iterator<PeriodOccupied> itPeriods = this.container.iterator();
+        Truck newPeriodTruck = periodOccupied.getTruck();
+        if(!this.trucksManager.existsTruck(newPeriodTruck))
+            throw new InputNotAvaiableException(newPeriodTruck);
+
+        Iterator<PeriodOccupied> itPeriods = getContainer().iterator();
         while(itPeriods.hasNext()) {
             PeriodOccupied currPeriod = itPeriods.next();
-            if(currPeriod.getTruck().equals(periodTruck)) {
-                if(currPeriod.containsPeriod(periodOccupied) || periodOccupied.containsPeriod(currPeriod)){
-                    //"The period passed is partially (or totally) a part of another occupied period for that truck"
-                    throw new InputNotAvaiableException(periodOccupied);
-                }
+            if (currPeriod.containsPeriod(periodOccupied) || periodOccupied.containsPeriod(currPeriod) && currPeriod.getTruck().equals(newPeriodTruck)) {
+                //SIGNIFICATE -->> "The period passed is partially (or totally) a part of another occupied period for that truck"
+                throw new InputNotAvaiableException(periodOccupied);
             }
         }
-        this.container.add(periodOccupied);
+
+        getContainer().add(periodOccupied);
     }
 
 
@@ -89,7 +92,7 @@ public class PeriodOccupiedManager {
             throw new NullInputException("The period passed is null");
         if(!existsPeriod(periodOccupied))
             throw new InvalidManagerInputException(periodOccupied);
-        this.container.remove(periodOccupied);
+        getContainer().remove(periodOccupied);
     }
 
 }
