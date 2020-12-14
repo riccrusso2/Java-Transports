@@ -40,6 +40,22 @@ public class TransportsManager {
 
     }
 
+    private Collection<Transport> getContainer() {
+        return container;
+    }
+
+    public PeriodOccupiedManager getPeriodOccupiedManager() {
+        return periodOccupiedManager;
+    }
+
+    public TrucksManager getTrucksManager() {
+        return trucksManager;
+    }
+
+    public RoutesManager getRoutesManager() {
+        return routesManager;
+    }
+
     /**
      * takes care of adding the transport in this manager
      *
@@ -66,11 +82,11 @@ public class TransportsManager {
         Iterator<Route> itRoute = transport.getTransportRoutes();
         while (itRoute.hasNext()) {
             Route route = itRoute.next();
-            if (!this.routesManager.existRoute(route)) {
+            if (!getRoutesManager().existRoute(route)) {
                 throw new InputNotAvaiableException(route);
             }
         }
-        if (this.periodOccupiedManager.existsPeriod(transport.getPeriodOccupied())) {
+        if (getPeriodOccupiedManager().existsPeriod(transport.getPeriodOccupied())) {
             throw new InputNotAvaiableException(transport.getPeriodOccupied());
         }
         Iterator<Good> itGood= transport.getPeriodOccupied().getTruck().getGoodsSupported();
@@ -79,7 +95,7 @@ public class TransportsManager {
                 if(transport.getPeriodOccupied().getTruck().getCapacity()<transport.getQuantity()){
                     throw new InvalidCapacityException(transport.getQuantity());
                 }else {
-                    this.container.add(transport);
+                    getContainer().add(transport);
                     break;
                 }
             }
@@ -98,7 +114,7 @@ public class TransportsManager {
         if (transport == null) {
             throw new NullInputException("input passed is null");
         }
-        return this.container.contains(transport);
+        return getContainer().contains(transport);
     }
 
 
@@ -117,7 +133,7 @@ public class TransportsManager {
             throw new InvalidManagerInputException(transport);
 
         }
-        this.container.remove(transport);
+        getContainer().remove(transport);
 
     }
 }

@@ -22,6 +22,10 @@ public class GoodsManager {
 
     }
 
+    private Collection<Good> getContainer() {
+        return container;
+    }
+
     /**
      * Checks if the good provided exists in this manager
      * @param good The good to search in this manager
@@ -33,7 +37,7 @@ public class GoodsManager {
         if(good==null){
             throw new NullInputException("the parameter passed is null");
         }
-        if(this.container.contains(good)){
+        if(getContainer().contains(good)){
             return true;
         }
         else{
@@ -56,7 +60,7 @@ public class GoodsManager {
             throw new NullInputException("the parameter passed is null");
         }
         else{
-            this.container.add(good);
+            getContainer().add(good);
         }
 
 
@@ -79,7 +83,7 @@ public class GoodsManager {
             throw new NullInputException("the parameter passed is null");
         }
         else{
-            this.container.remove(good);
+            getContainer().remove(good);
         }
 
 

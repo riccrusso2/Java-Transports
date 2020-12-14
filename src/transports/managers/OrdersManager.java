@@ -18,6 +18,9 @@ import java.util.Vector;
 public class OrdersManager {
     private Collection<Order> container;
     private CustomersManager customersManager;
+
+
+
     private TransportsManager transportsManager;
 
     /**
@@ -37,6 +40,14 @@ public class OrdersManager {
 
     private Collection<Order> getContainer() {
         return container;
+    }
+
+    public CustomersManager getCustomersManager() {
+        return customersManager;
+    }
+
+    public TransportsManager getTransportsManager() {
+        return transportsManager;
     }
 
     /**
@@ -73,13 +84,13 @@ public class OrdersManager {
         if(order==null){
             throw new NullInputException("the parameter passed is null");}
 
-        if(!this.customersManager.existsCustomer(order.getCustomer())){
+        if(!getCustomersManager().existsCustomer(order.getCustomer())){
             throw new InputNotAvaiableException(order.getCustomer());}
 
         Iterator<Transport> itTransport= order.getTransportList();
         while(itTransport.hasNext()){
             Transport checkTrasport= itTransport.next();
-            if(!this.transportsManager.existsTransport(checkTrasport)){
+            if(!getTransportsManager().existsTransport(checkTrasport)){
                 throw new InputNotAvaiableException(checkTrasport);
             }
         }
@@ -88,7 +99,7 @@ public class OrdersManager {
             throw new InvalidManagerInputException(order);
         }
 
-        this.container.add(order);
+        getContainer().add(order);
     }
 
 
@@ -105,7 +116,7 @@ public class OrdersManager {
             throw new NullInputException("the parameter passed is null"); }
         if(!existsOrder(order)){
             throw new InvalidManagerInputException(order);}
-        this.container.remove(order);
+        getContainer().remove(order);
     }
 }
 

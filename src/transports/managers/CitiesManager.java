@@ -26,6 +26,10 @@ public class CitiesManager  {
 
     }
 
+    private Collection<City> getContainer() {
+        return container;
+    }
+
     /**
      * Checks if a city is present in this manager
      * @param city The city to search in this manager
@@ -38,7 +42,7 @@ public class CitiesManager  {
             throw new NullInputException("the parameter passed is null");
 
         }
-        if (this.container.contains(city)) {
+        if (getContainer().contains(city)) {
             return true;
         } else {
             return false;
@@ -60,7 +64,7 @@ public class CitiesManager  {
             throw new NullInputException("the parameter passed is null");
         }
         else{
-            this.container.add(city);
+            getContainer().add(city);
         }
 
     }
@@ -80,7 +84,7 @@ public class CitiesManager  {
             throw new NullInputException("the parameter passed is null");
         }
         else{
-            this.container.remove(city);
+            getContainer().remove(city);
         }
 
 
